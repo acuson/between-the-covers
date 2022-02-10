@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 let sequelize;
 
-if (process.env.JAWSDB_URL) {
+if (process.env.JAWSDB_URI) {
     sequelize = new Sequelize(process.env.JAWSDB_URI);
     console.log("connected to JAWS");
 } else {
