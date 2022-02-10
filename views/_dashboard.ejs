@@ -1,51 +1,30 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Between The Covers</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav ml›-auto">
-          <!-- <li class="nav-item">
-            <a class="nav-link active" href="#">Home
-              <span class="visually-hidden">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li> -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">View Profile</a>
-              <a class="dropdown-item" href="#">Edit Profile</a>
-              <a class="dropdown-item" href="#">Account Settings</a>
-              <!-- <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a> -->
-            </div>
-          </li>
-        </ul>
-        <!-- <form class="d-flex">
-          <input class="form-control me-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
-      </div>
-    </div>
-  </nav>
-<main>
-    <div class="container d-flex">
-        <div class="card border-info mb-3" style="max-width: 20rem;">
-            <div class="card-header">Header</div>
+
+    <div class="container d-flex flex-wrap m-5">
+        <div class="card border-info mb-3">
+            <div class="card-header">Your Book Clubs</div>
             <div class="card-body">
-              <h4 class="card-title">Info card title</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h4 class="card-title">Upcoming Meetings</h4>
+              <div class= 'meetings d-flex flex-column'>
+                <a class="card-text" href=# >Book Title @ Meeting Time</a>
+                <a class="card-text" href=# >Book Title @ Meeting Time</a>
+                <a class="card-text" href=# >Book Title @ Meeting Time</a> 
+            </div>
+            <button type="button" class="btn btn-info">View All Clubs</button>
+            </div>
+        </div>
+        <div class="card border-info mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+              <!-- <h4 class="card-title">Create A Book Club</h4> -->
+              <p class="card-text">Can't find a book club that works for you? Create a new one!</p>
+              <button type="button" class="btn btn-info">Create a Book Club</button>
+            </div>
+        </div>
+        <div class="card border-info mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+                <!-- <h4 class="card-title">Create A Book Club</h4> -->
+                <p class="card-text">Looking for more book clubs to join?</p>
+                <button type="button" class="btn btn-info">Explore Book Clubs</button>
+            </div>
         </div>
     </div>
-</main>
+
