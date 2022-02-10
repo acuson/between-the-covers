@@ -13,6 +13,10 @@ router.get('/dashboard', async(req, res) =>{
 
 // GET explore book clubs page
 
+router.get('/explore', async(req, res) =>{
+    res.render('index')
+})
+
 // GET create book clubs page
 
 module.exports = router;
