@@ -21,3 +21,6 @@ Dashboard page that has three sections that redirect to 3 different pages:
 * display multiple clubs with like or dislike button
 * make meeting private link private 
 
+## Your Clubs
+* displays all clubs that user has joined, past and present
+
