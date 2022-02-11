@@ -16,7 +16,33 @@ router.get('/dashboard', async(req, res) =>{
 // GET explore book clubs page
 
 router.get('/explore', async(req, res) =>{
-    res.render('explore-clubs')
+    let clubs = [
+        {
+            name: "Club 1",
+            description: 'This is a really fun club!!',
+        },
+        {
+            name: "Club 2",
+            description: 'This is a really fun club!!',
+        },
+        {
+            name: "Club 3",
+            description: 'This is a really fun club!!',
+        },
+        {
+            name: "Club 4",
+            description: 'This is a really fun club!!',
+        },
+        {
+            name: "Club 5",
+            description: 'This is a really fun club!!',
+        },
+        {
+            name: "Club 6",
+            description: 'This is a really fun club!!',
+        }
+    ]
+    res.render('explore-clubs', {clubs: clubs})
 })
 
 // GET create book clubs page
