@@ -2,14 +2,17 @@ const dotenv = require("dotenv");
 dotenv.config();
 const path = require("path");
 const express = require("express");
-const session = require("express-session");
+//const session = require("express-session");
 const routes = require("./routes");
 
-const sequlize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+//Import and require mysql2
+const mysql = require('mysql2');
+
+/* const sequlize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
-const POST = process.env.PORT;
+const PORT = process.env.PORT || 3005;
 
 // TODO: add session
 // const sess = {
@@ -18,7 +21,7 @@ const POST = process.env.PORT;
 //         maxAge: //how long do we want the lifespace
 //     },
 //     resave: false,
-//     saveUninitialized: true,
+//     saveUninitialized: true,å
 //     store: new SequelizeStore({
 //         db: sequelize
 //     })
@@ -27,12 +30,13 @@ const POST = process.env.PORT;
 
 // TODO: add and init ejs view engine
 
+app.set('view engine', 'ejs')
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
-// sequelize.sync().then(() => {
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 
