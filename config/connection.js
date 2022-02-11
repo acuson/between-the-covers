@@ -1,10 +1,11 @@
 const Sequelize = require("sequelize");
+require('dotenv').config();
 
 let sequelize;
 
-if (process.env.JAWSDB_URL) {
-    sequelize = new Sequelize(process.env.JAWSDB_URI);
-    console.log("connected to JAWS");
+if (process.env.MYSQL_URL) {
+    sequelize = new Sequelize(process.env.MYSQL_URL);
+    console.log("connected to Behind The Covers Database");
 } else {
     sequelize = new Sequelize(
         process.env.DB_NAME,
