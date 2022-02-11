@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 
 let sequelize;
 
-if (process.env.JAWSDB_URI) {
-    sequelize = new Sequelize(process.env.JAWSDB_URI);
+if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
     console.log("connected to JAWS");
 } else {
     sequelize = new Sequelize(
