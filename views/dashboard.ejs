@@ -1,30 +1,40 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/_head')%>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
+  <main>
     <div class="container d-flex flex-wrap m-5">
-        <div class="card border-info mb-3 w-100">
-            <div class="card-header">Your Book Clubs</div>
-            <div class="card-body">
-              <h4 class="card-title">Upcoming Meetings</h4>
-              <div class= 'meetings d-flex flex-column'>
-                <a class="card-text" href=# >Book Title @ Meeting Time</a>
-                <a class="card-text" href=# >Book Title @ Meeting Time</a>
-                <a class="card-text" href=# >Book Title @ Meeting Time</a> 
+        <!-- <div class="container d-flex flex-wrap m-5"> -->
+            <div class="card border-primary col-12 mb-3">
+                <div class="card-header">Your Book Clubs</div>
+                <div class="card-body">
+                <h4 class="card-title">Upcoming Meetings</h4>
+                <div class= 'meetings d-flex flex-column'>
+                    <a class="card-text" href=# >Book Title @ Meeting Time</a>
+                    <a class="card-text" href=# >Book Title @ Meeting Time</a>
+                    <a class="card-text" href=# >Book Title @ Meeting Time</a> 
+                </div>
+                <button type="button" class="btn btn-primary">View All Clubs</button>
+                </div>
             </div>
-            <button type="button" class="btn btn-info">View All Clubs</button>
-            </div>
-        </div>
-        <div class="card border-info mb-3" style="max-width: 20rem;">
-            <div class="card-body">
-              <!-- <h4 class="card-title">Create A Book Club</h4> -->
-              <p class="card-text">Can't find a book club that works for you? Create a new one!</p>
-              <button type="button" class="btn btn-info">Create a Book Club</button>
-            </div>
-        </div>
-        <div class="card border-info mb-3" style="max-width: 20rem;">
-            <div class="card-body">
+            <div class="card border-primary col-6 mb-3" style="max-width: 20rem;">
+                <div class="card-body">
                 <!-- <h4 class="card-title">Create A Book Club</h4> -->
-                <p class="card-text">Looking for more book clubs to join?</p>
-                <button type="button" class="btn btn-info">Explore Book Clubs</button>
+                <p class="card-text">Can't find a book club that works for you? Create a new one!</p>
+                <button type="button" class="btn btn-primary">Create a Book Club</button>
+                </div>
             </div>
-        </div>
+            <div class="card border-primary col-6 mb-3" style="max-width: 20rem;">
+                <div class="card-body">
+                    <!-- <h4 class="card-title">Create A Book Club</h4> -->
+                    <p class="card-text">Looking for more book clubs to join?</p>
+                    <button type="button" class="btn btn-primary">Explore Book Clubs</button>
+                </div>
+            </div>
+        <!-- </div> -->
     </div>
-    </div>
+</main>
+</body>
