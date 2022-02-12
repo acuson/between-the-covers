@@ -9,3 +9,5 @@ Club.hasMany(Tag, {
 });
 
 User.belongsToMany(Club, { through: User_Club });
+
+module.exports = { Club, Tag, User, User_Club };
