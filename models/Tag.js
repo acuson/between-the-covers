@@ -9,9 +9,17 @@ Tag.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
+            primaryKey: true,
         },
         tag_name: {
             type: DataTypes.STRING,
+        },
+        club_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "club",
+                key: "id",
+            },
         },
     },
     {

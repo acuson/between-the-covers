@@ -26,9 +26,6 @@ Club.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        tag_id: {
-            type: DataTypes.INTEGER,
-        },
     },
     {
         sequelize,

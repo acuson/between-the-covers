@@ -1,5 +1,5 @@
 const router = require("express").Router();
-/* const{} = require('../models') //import models */
+const { User, Club, Tag, User_Club } = require("../models");
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -30,4 +30,5 @@ router.get("/explore", async (req, res) => {
 router.get("/create-club", async (req, res) => {
     res.render("_create-club");
 });
+
 module.exports = router;
