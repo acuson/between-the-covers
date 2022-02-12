@@ -3,10 +3,9 @@ dotenv.config();
 const path = require("path");
 const express = require("express");
 //const session = require("express-session");
-const routes = require("./routes");
 
-/* const sequlize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store); */
+const sequlize = require("./config/connection");
+/* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -25,16 +24,14 @@ const PORT = process.env.PORT || 3005;
 // };
 // app.use(session(sess))
 
-// TODO: add and init ejs view engine
-
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+const routes = require("./routes");
+
 app.use(routes);
 
-
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
-
-// });
