@@ -3,7 +3,7 @@ CREATE DATABASE btc_db;
 
 USE btc_db;
 
-/* CREATE TABLE book_clubs (
+CREATE TABLE book_clubs (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   active BOOLEAN NOT NULL,
@@ -22,4 +22,4 @@ CREATE TABLE current_club (
   title VARCHAR(30) NOT NULL,
   active BOOLEAN NOT NULL,
   book VARCHAR(30)
-); */
+);
