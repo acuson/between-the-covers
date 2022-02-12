@@ -5,16 +5,13 @@ const express = require("express");
 //const session = require("express-session");
 const routes = require("./routes");
 
-<<<<<<< HEAD
 const sequlize = require("./config/connection");
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
-=======
 //Import and require mysql2
 const mysql = require('mysql2');
 
 /* const sequlize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store); */
->>>>>>> gino-branch
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -42,7 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
-app.set('layout', '/views/create-club');
+app.set('layout', '/views/your-clubs');
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 
 // });

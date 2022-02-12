@@ -7,8 +7,8 @@ router.get('/', async(req, res) =>{
 })
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
-router.get('/create-club', async(req, res) =>{
-    res.render('dashboard')
+router.get('/your-clubs', async(req, res) =>{
+    res.render('your-clubs')
 })
 
 // GET your book clubs page
