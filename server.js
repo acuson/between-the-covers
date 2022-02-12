@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
-
+app.set('layout', '/views/create-club');
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 
 // });

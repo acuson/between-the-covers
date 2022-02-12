@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
-router.get('/dashboard', async(req, res) =>{
+router.get('/create-club', async(req, res) =>{
     res.render('index')
 })
 
