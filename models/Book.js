@@ -19,6 +19,10 @@ Book.init(
       types: DataTypes.STRING,
       allowNull: false,
     },
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.TEXT,
     },
@@ -26,6 +30,9 @@ Book.init(
       type: DataTypes.STRING,
     },
     link: {
+      type: DataTypes.STRING,
+    },
+    pubisher: {
       type: DataTypes.STRING,
     },
     club_id: {
