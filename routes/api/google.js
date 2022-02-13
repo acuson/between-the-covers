@@ -2,28 +2,33 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 const url = require("url");
 const router = require("express").Router();
-const Google = require("../../lib/Google");
 
 const API_KEY = process.env.GOOGLE_API_KEY;
-const BASE_URL = "https://www.googleapis.com/books/v1/volumes/";
+const BASE_URL = process.env.BASE_URL;
 
-router.get("/", async (req, res) => {
-    // const book = Google.getById("zyTCAlFPjgYC");
-    // try {
-    //     const params = new URLSearchParams({
-    //         key: API_KEY,
-    //         ...url.parse(req.url, true).query,
-    //     });
-    //     const response = await fetch(`${BASE_URL}?${params}`);
-    //     const data = await response.json();
-    //     res.status(200).json(data);
-    // } catch (err) {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    // const url = `https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=${API_KEY}`;
-    // const response = await fetch(url);
-    // const data = await response.json();
-    // res.status(200).json(data);
+router.post("/", async (req, res) => {
+    try {
+        console.log(req.body);
+
+        //IF WORKING FROM URL PARAMETERS
+        // const params = new URLSearchParams({
+        //     isbn: req.body.isbn,
+        //     key: API_KEY,
+        //     ...url.parse(req.url, true).query,
+        // });
+
+        //IF WORKING FROM REQUEST BODY
+        // take request JSON body
+        // reformat to URL Parameter String
+
+        // const response = await fetch(`${BASE_URL}?q=${params}`);
+        // const data = await response.json();
+        // console.log(params);
+        // res.status(200).json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.get("/:id", async (req, res) => {
@@ -32,7 +37,10 @@ router.get("/:id", async (req, res) => {
         const response = await fetch(`${BASE_URL}${id}?key=${API_KEY}`);
         const { volumeInfo } = await response.json();
         res.status(200).json(volumeInfo);
-    } catch (err) {}
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
