@@ -1,11 +1,11 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 dotenv.config();
-const path = require("path");
-const express = require("express");
+const path = require('path');
+const express = require('express');
 //const session = require("express-session");
 
-const sequelize = require("./config/connection");
-const Models = require("./models");
+const sequelize = require('./config/connection');
+const Models = require('./models');
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
@@ -25,16 +25,16 @@ const PORT = process.env.PORT || 3005;
 // };
 // app.use(session(sess))
 
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const routes = require("./routes");
+const routes = require('./routes');
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
-});
+// sequelize.sync({ force: false }).then(() => {
+app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
+// });
