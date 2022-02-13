@@ -4,7 +4,8 @@ const path = require("path");
 const express = require("express");
 //const session = require("express-session");
 
-const sequlize = require("./config/connection");
+const sequelize = require("./config/connection");
+const Models = require("./models");
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
@@ -34,4 +35,6 @@ const routes = require("./routes");
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
+});
