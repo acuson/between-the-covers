@@ -52,3 +52,5 @@ Book.init(
     modelName: 'book',
   }
 );
+
+module.exports = Book;

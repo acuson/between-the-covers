@@ -6,7 +6,9 @@ const { User, Club, Book, Tag, User_Club } = require('../../models');
 // GET /api/clubs
 router.get('/', async (req, res) => {
   try {
-    const clubs = await Club.findAll();
+    const clubs = await Club.findAll({
+      include: [{ model: Book }],
+    });
     res.status(200).json(clubs);
   } catch (err) {
     console.error(err);
