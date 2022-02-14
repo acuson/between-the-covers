@@ -7,7 +7,7 @@ const { User, Club, Book, Tag, User_Club } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const clubs = await Club.findAll({
-      include: [{ model: Book }],
+      include: [{ model: Book }, { model: User }],
     });
     res.status(200).json(clubs);
   } catch (err) {
