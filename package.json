@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "nodemon": "nodemon server.js"
+        "dev": "nodemon server.js",
+        "seed": "cd seeds && node index.js"
     },
     "author": "Alyssa Cuson, Gino Colman, Darby Johnson, Christine Nguyen, Kevin Lacson",
     "license": "MIT",
@@ -18,6 +19,6 @@
         "express": "^4.17.2",
         "express-sequelize": "^0.0.4",
         "mysql2": "^2.3.3",
-        "sequelize": "^6.16.0"
+        "sequelize": "^6.16.1"
     }
 }
