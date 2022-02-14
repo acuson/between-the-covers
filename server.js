@@ -1,11 +1,11 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 dotenv.config();
-const path = require("path");
-const express = require("express");
+const path = require('path');
+const express = require('express');
 //const session = require("express-session");
-const routes = require("./routes");
 
-const sequlize = require("./config/connection");
+const sequelize = require('./config/connection');
+const Models = require('./models');
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 //Import and require mysql2
 const mysql = require('mysql2');
@@ -30,16 +30,21 @@ const PORT = process.env.PORT || 3005;
 // };
 // app.use(session(sess))
 
-// TODO: add and init ejs view engine
-
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-app.use(routes);
+app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< HEAD
 app.set('layout', '/views/your-clubs');
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
+=======
+const routes = require('./routes');
 
-// });
+app.use(routes);
+>>>>>>> 616721dc2f9a39361681a9e7fbb615e1fcb7eb3e
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
+});
