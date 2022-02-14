@@ -2,7 +2,8 @@
 const router = require("express").Router();
 const { User, Club, Book, Tag, User_Club } = require("../../models");
 
-//GET
+// desc: get all users
+//GET /api/users
 router.get("/", async (req, res) => {
     try {
         // do stuff
@@ -12,7 +13,8 @@ router.get("/", async (req, res) => {
     }
 });
 
-//POST
+// desc: Create User
+// POST /api/users/
 router.post("/", async (req, res) => {
     try {
         // do stuff
@@ -22,7 +24,8 @@ router.post("/", async (req, res) => {
     }
 });
 
-// PUT
+// desc: update user
+// PUT /api/users/:id
 router.put("/:id", async (req, res) => {
     try {
         // do stuff
@@ -32,7 +35,8 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// DELETE
+// desc: delete user
+// DELETE /api/users/:id
 router.delete("/:id", async (req, res) => {
     try {
         // do stuff
