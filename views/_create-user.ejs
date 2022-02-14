@@ -4,78 +4,78 @@
     <%- include('partials/_head')%>
 </head>
 <body>
-    <div class="container d-flex flex-wrap m-5 justify-content-center">
-        <h1>Between the Covers</h1>
-    </div>
-    <div class="container d-flex flex-wrap m-5 justify-content-center">
-        <h2>Create a New Account</h2>
-    </div>
-            <div class="container d-flex flex-wrap m-5 justify-content-center">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-body mx-3 mb-3 d-flex justify-content-center">
-                            <div>
-                                <form>
-                                    <label for="fname" class="lead">First Name</label><br>
-                                        <input type="text" id="fname" name="fname"><br>
-                                    <label for="lname" class="lead">Last Name</label><br>
-                                        <input type="text" id="lname" name="lname"><br>
-                                    <label for="email" class="lead">Email</label><br>
-                                        <input type="text" id="email" name="email"><br>
-                                    <label for="password" class="lead">Create a password</label><br>
-                                        <input type="password" id="password" name="password"><br>
-                                    <label for="genre" class="p-2 lead">What are your favorite genres?</label><br>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="fantasy">Fantasy
-                                                    <input type="checkbox" name="genre" value="adventure">Adventure
-                                                    <input type="checkbox" name="genre" value="romance">Romance
-                                                    <input type="checkbox" name="genre" value="contemporary">Contemporary
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
+    <main>
+        <div class="container d-flex flex-wrap mt-5 justify-content-center">
+            <h1>Create A New Account</h1>
+        </div>
+                <div class="container d-flex flex-wrap mt-5 mb-5 justify-content-center">
+                    <div class="card border-primary">
+                        <div class="card-header">
+                            <div class="card-body mx-3 mb-3 d-flex justify-content-center">
+                                <div>
+                                    <form>
+                                        <label for="fname">First Name</label><br>
+                                            <input type="text" id="fname" name="fname"><br>
+                                        <label for="lname">Last Name</label><br>
+                                            <input type="text" id="lname" name="lname"><br>
+                                        <label for="email">Email</label><br>
+                                            <input type="text" id="email" name="email"><br>
+                                        <label for="password">Create a password</label><br>
+                                            <input type="password" id="password" name="password"><br>
+                                        <label for="genre" class="p-2">What are your favorite genres?</label><br>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="fantasy">Fantasy
+                                                        <input type="checkbox" name="genre" value="adventure">Adventure
+                                                        <input type="checkbox" name="genre" value="romance">Romance
+                                                        <input type="checkbox" name="genre" value="contemporary">Contemporary
+                                                    </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="mystery">Mystery
+                                                        <input type="checkbox" name="genre" value="horror">Horror
+                                                        <input type="checkbox" name="genre" value="thriller">Thriller
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="historical-fiction">Historical Fiction
+                                                        <input type="checkbox" name="genre" value="science-fiction">Science Fiction
+                                                        <input type="checkbox" name="genre" value="memoir">Memoir 
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="self-help">Self-Help
+                                                        <input type="checkbox" name="genre" value="health">Health
+                                                        <input type="checkbox" name="genre" value="travel">Travel 
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="how-to">How-To
+                                                        <input type="checkbox" name="genre" value="academic">Academic
+                                                        <input type="checkbox" name="genre" value="history">History
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm w-100">
+                                                        <input type="checkbox" name="genre" value="philosophy">Philosopy 
+                                                        <input type="checkbox" name="genre" value="journalism">Journalism
+                                                        <input type="checkbox" name="genre" value="humor">Humor
+                                                    </div>
+                                                </div> 
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="mystery">Mystery
-                                                    <input type="checkbox" name="genre" value="horror">Horror
-                                                    <input type="checkbox" name="genre" value="thriller">Thriller
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="historical-fiction">Historical Fiction
-                                                    <input type="checkbox" name="genre" value="science-fiction">Science Fiction
-                                                    <input type="checkbox" name="genre" value="memoir">Memoir 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="self-help">Self-Help
-                                                    <input type="checkbox" name="genre" value="health">Health
-                                                    <input type="checkbox" name="genre" value="travel">Travel 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="how-to">How-To
-                                                    <input type="checkbox" name="genre" value="academic">Academic
-                                                    <input type="checkbox" name="genre" value="history">History
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm w-100">
-                                                    <input type="checkbox" name="genre" value="philosophy">Philosopy 
-                                                    <input type="checkbox" name="genre" value="journalism">Journalism
-                                                    <input type="checkbox" name="genre" value="humor">Humor
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    <a href="/dashboard">    
-                                        <button type="submit" id="create-acct" class="btn btn-primary mt-2"> Create Account</button>
-                                    </a>
-                                </form>
-                            </div>
-            </div>
+                                        <a href="/dashboard">    
+                                            <button type="submit" id="create-acct" class="btn btn-primary mt-2"> Create Account</button>
+                                        </a>
+                                    </form>
+                                </div>
+                </div>
+    </main>        
     <footer>
         <%- include('partials/_footer')%>
     </footer>        
