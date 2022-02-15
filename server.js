@@ -7,6 +7,11 @@ const express = require('express');
 const sequelize = require('./config/connection');
 const Models = require('./models');
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
+//Import and require mysql2
+const mysql = require('mysql2');
+
+/* const sequlize = require("./config/connection");
+const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -31,9 +36,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.set('layout', '/views/your-clubs');
+app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 const routes = require('./routes');
 
 app.use(routes);
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
