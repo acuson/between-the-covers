@@ -16,6 +16,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+//desc: get clubs for explore feature
+
+
 // desc: get club by id
 // GET /api/clubs/:id
 router.get('/:id', async (req, res) => {
