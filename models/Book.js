@@ -32,7 +32,7 @@ Book.init(
     link: {
       type: DataTypes.STRING,
     },
-    pubisher: {
+    publisher: {
       type: DataTypes.STRING,
     },
     club_id: {
@@ -52,3 +52,5 @@ Book.init(
     modelName: 'book',
   }
 );
+
+module.exports = Book;
