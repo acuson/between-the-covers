@@ -78,7 +78,7 @@ const tagData = {
 
 const seedUser = () => User.bulkCreate(usersData);
 const seedClub = () => Club.create(clubData);
-const seedUserClub = () => User_Club.create(userClubData);
+const seedUserClub = () => User_Club.bulkCreate(userClubData);
 const seedTag = () => Tag.create(tagData);
 
 const seedAll = async () => {
