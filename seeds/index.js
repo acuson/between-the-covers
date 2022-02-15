@@ -44,7 +44,6 @@ const usersData = [
 
 const clubData = {
     description: "GOLDEN PANDAS",
-    book: "Manwhore +1",
     capacity: 5,
     active: true,
 };

@@ -38,14 +38,12 @@ router.post('/', async (req, res) => {
   try {
     const reqBody = {
       description: req.body.description,
-      book_id: req.body.book_id,
+      /* book_id: req.body.book_id, */
       capacity: req.body.capacity,
       active: req.body.active,
     };
     const response = await Club.create(reqBody);
-    !response.ok
-      ? res.status(500).json({ message: 'Club not created' })
-      : res.status(200).json({ message: 'Club Created' });
+    res.status(200).json({ message: 'Club Created' });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -59,11 +57,11 @@ router.post('/join', async (req, res) => {
   try{
     const memJoin = await User_Club.create({
       user_id: req.body.user_id,
-      club_id: req.body.club_id
+      club_id: req.body.clubId
     });
     res.status(200).json(memJoin)
   } catch (err){
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
