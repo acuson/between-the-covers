@@ -1,20 +1,11 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
-require("dotenv").config();
 
 let sequelize;
-
-
-
-if (process.env.MYSQL_URL) {
-    sequelize = new Sequelize(process.env.MYSQL_URL);
-    console.log("connected to Behind The Covers Database");
 
 if (process.env.JAWSDB_URL) {
     sequelize = new Sequelize(process.env.JAWSDB_URL);
     console.log("connected to JAWS");
-
-
 } else {
     sequelize = new Sequelize(
         process.env.DB_NAME,
@@ -29,4 +20,4 @@ if (process.env.JAWSDB_URL) {
     console.log("Connected to localhost");
 }
 
-module.exports = sequelize; 
+module.exports = sequelize;
