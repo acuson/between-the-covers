@@ -70,7 +70,7 @@ router.get("/explore", async (req, res) => {
 
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
-    res.render("_create-club");
+    res.render("create-club");
 });
 
 module.exports = router;
