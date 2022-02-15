@@ -11,46 +11,19 @@ router.get("/", async (req, res) => {
 router.get("/create-user", async (req, res) => {
     res.render("_create-user");
 });
-// GET dashboard
-// for now you can copy this rout and replace dashboard with your page name to check if it renders
 
+// GET your-clubs
 router.get('/your-clubs', async(req, res) =>{
     res.render('your-clubs')
 })
 
-// GET your book clubs page
+// GET your dashboard page
 router.get('/dashboard', async(req, res) =>{
     res.render('dashboard')
 })
 // GET explore book clubs page
 
 router.get('/explore', async(req, res) =>{
-   /*  let clubs = [
-        {
-            name: "Club 1",
-            description: 'This is a really fun club!!',
-        },
-        {
-            name: "Club 2",
-            description: 'This is a really fun club!!',
-        },
-        {
-            name: "Club 3",
-            description: 'This is a really fun club!!',
-        },
-        {
-            name: "Club 4",
-            description: 'This is a really fun club!!',
-        },
-        {
-            name: "Club 5",
-            description: 'This is a really fun club!!',
-        },
-        {
-            name: "Club 6",
-            description: 'This is a really fun club!!',
-        }
-    ] */
     try {
         const clubs = await Club.findAll(/* {
           include: [{ model: Book }, { model: User }],
@@ -60,7 +33,6 @@ router.get('/explore', async(req, res) =>{
         console.error(err);
         res.status(500).json(err);
       }
-    /* res.render('explore-clubs', {clubs: clubs}) */
 })
 
 router.get("/dashboard", async (req, res) => {
@@ -69,7 +41,7 @@ router.get("/dashboard", async (req, res) => {
 
 // GET your book clubs page
 router.get("/your-clubs", async (req, res) => {
-    res.render("_your-clubs");
+    res.render("your-clubs");
 });
 // GET explore book clubs page
 
@@ -80,7 +52,7 @@ router.get("/explore", async (req, res) => {
 
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
-    res.render("_create-club");
+    res.render("create-club");
 });
 
 
