@@ -6,6 +6,7 @@ const express = require('express');
 
 const sequelize = require('./config/connection');
 const Models = require('./models');
+
 /* const SequelizeStore = require("connect-session-sequelize")(session.Store); */
 
 const app = express();
