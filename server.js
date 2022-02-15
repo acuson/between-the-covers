@@ -36,14 +36,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-<<<<<<< HEAD
+
 app.set('layout', '/views/your-clubs');
 app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
-=======
 const routes = require('./routes');
 
 app.use(routes);
->>>>>>> 616721dc2f9a39361681a9e7fbb615e1fcb7eb3e
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));

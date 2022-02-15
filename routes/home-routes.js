@@ -12,7 +12,7 @@ router.get("/create-user", async (req, res) => {
 });
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
-<<<<<<< HEAD
+
 router.get('/your-clubs', async(req, res) =>{
     res.render('your-clubs')
 })
@@ -52,7 +52,7 @@ router.get('/explore', async(req, res) =>{
     ]
     res.render('explore-clubs', {clubs: clubs})
 })
-=======
+
 router.get("/dashboard", async (req, res) => {
     res.render("dashboard");
 });
@@ -66,7 +66,7 @@ router.get("/your-clubs", async (req, res) => {
 router.get("/explore", async (req, res) => {
     res.render("explore-clubs");
 });
->>>>>>> 616721dc2f9a39361681a9e7fbb615e1fcb7eb3e
+
 
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
