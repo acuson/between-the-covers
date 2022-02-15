@@ -1,14 +1,14 @@
-const Club = require('./Club');
-const Tag = require('./Tag');
-const Book = require('./Book');
-const User = require('./User');
-const User_Club = require('./User_Club');
+const Club = require("./Club");
+const Tag = require("./Tag");
+const Book = require("./Book");
+const User = require("./User");
+const User_Club = require("./User_Club");
 
 Club.hasMany(Tag, {
-  foreignKey: 'tag_id',
+    foreignKey: "tag_id",
 });
 Tag.belongsTo(Club, {
-  foreignKey: 'tag_id',
+    foreignKey: "tag_id",
 });
 
 // User.hasMany(Club, {
@@ -16,11 +16,11 @@ Tag.belongsTo(Club, {
 // });
 
 Club.hasOne(Book, {
-  foreignKey: 'book_id',
+    foreignKey: "book_id",
 });
 
 Book.belongsTo(Club, {
-  foreignKey: 'book_id',
+    foreignKey: "book_id",
 });
 
 Club.belongsToMany(User, { through: User_Club });
