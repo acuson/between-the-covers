@@ -1,6 +1,7 @@
+const Book = require("./Book");
 const Club = require("./Club");
 const Tag = require("./Tag");
-const Book = require("./Book");
+
 const User = require("./User");
 const User_Club = require("./User_Club");
 
@@ -11,9 +12,9 @@ Tag.belongsTo(Club, {
     foreignKey: "tag_id",
 });
 
-// User.hasMany(Club, {
-//   foreignKey: 'club_id',
-// });
+User.hasMany(Club, {
+    foreignKey: "club_id",
+});
 
 Club.hasOne(Book, {
     foreignKey: "book_id",
@@ -26,4 +27,4 @@ Book.belongsTo(Club, {
 Club.belongsToMany(User, { through: User_Club });
 User.belongsToMany(Club, { through: User_Club });
 
-module.exports = { Club, Tag, Book, User, User_Club };
+module.exports = { Club, Tag, User, User_Club };
