@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Club, Tag, User_Club } = require("../models");
+/* const joinData = require('../public/js/explore-functions'); */
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -72,5 +73,6 @@ router.get("/explore", async (req, res) => {
 router.get("/create-club", async (req, res) => {
     res.render("create-club");
 });
+
 
 module.exports = router;

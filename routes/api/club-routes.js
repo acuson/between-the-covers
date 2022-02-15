@@ -16,6 +16,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+//desc: get clubs for explore feature
+
+
 // desc: get club by id
 // GET /api/clubs/:id
 router.get('/:id', async (req, res) => {
@@ -38,19 +41,32 @@ router.post('/', async (req, res) => {
   try {
     const reqBody = {
       description: req.body.description,
-      book_id: req.body.book_id,
+      /* book_id: req.body.book_id, */
       capacity: req.body.capacity,
       active: req.body.active,
     };
     const response = await Club.create(reqBody);
-    !response.ok
-      ? res.status(500).json({ message: 'Club not created' })
-      : res.status(200).json({ message: 'Club Created' });
+    res.status(200).json({ message: 'Club Created' });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 });
+
+//add member to club
+//POST /api/clubs/join
+
+router.post('/join', async (req, res) => {
+  try{
+    const memJoin = await User_Club.create({
+      user_id: req.body.user_id,
+      club_id: req.body.club_id
+    });
+    res.status(200).json(memJoin)
+  } catch (err){
+    res.status(500).json(err)
+  }
+})
 
 // desc: update club
 // PUT /api/clubs/:id
@@ -62,6 +78,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // desc: delete club
 // DELETE /api/clubs/:id
