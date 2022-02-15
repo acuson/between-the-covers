@@ -9,6 +9,7 @@ User_Club.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -20,7 +21,7 @@ User_Club.init(
         club_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "user",
+                model: "club",
                 key: "id",
             },
         },
