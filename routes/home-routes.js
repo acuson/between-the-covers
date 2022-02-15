@@ -33,17 +33,4 @@ router.get("/create-club", async (req, res) => {
 });
 
 
-//POST ROUTES//
-
-
-//POST adds user to club
-/* router.post('/', async (req,res) =>{
-        try{
-            const data = await User_Club.create(joinData.joinClub);
-            res.status(200).json(data);
-        } catch(err){
-            res.status(400).json(err)
-        }
-    })
-*/
 module.exports = router;

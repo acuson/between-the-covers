@@ -52,6 +52,21 @@ router.post('/', async (req, res) => {
   }
 });
 
+//add member to club
+//POST /api/clubs/join
+
+router.post('/join', async (req, res) => {
+  try{
+    const memJoin = await User_Club.create({
+      user_id: req.body.user_id,
+      club_id: req.body.club_id
+    });
+    res.status(200).json(memJoin)
+  } catch (err){
+    res.status(400).json(err)
+  }
+})
+
 // desc: update club
 // PUT /api/clubs/:id
 router.put('/:id', async (req, res) => {
@@ -62,6 +77,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // desc: delete club
 // DELETE /api/clubs/:id
