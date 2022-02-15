@@ -26,6 +26,12 @@ Club.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        meeting_day:{
+            type: DataTypes.TEXT
+        },
+        meeting_time:{
+            type: DataTypes.TEXT
+        },
         meeting_link:{
             type: DataTypes.TEXT,
             allowNull: false
