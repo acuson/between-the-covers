@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Club, Tag, User_Club } = require("../models");
+const joinData = require('../public/js/explore-functions');
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -30,5 +31,17 @@ router.get("/explore", async (req, res) => {
 router.get("/create-club", async (req, res) => {
     res.render("_create-club");
 });
+
+
+//POST ROUTES//
+
+router.post('/', async (req,res) =>{
+        try{
+            const userData = await User.create(joinData.joinClub);
+            res.status(200).json(joinData.joinClub);
+        } catch(err){
+            res.status(400).json(err)
+        }
+    })
 
 module.exports = router;
