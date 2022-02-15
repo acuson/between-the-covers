@@ -53,6 +53,12 @@ User.init(
                 );
                 return newUserData;
             },
+            async beforeBulkCreate(newUserData) {
+                for (const user of newUserData) {
+                    user.password = await bcrypt.hash(user.password, 8);
+                }
+                return newUserData;
+            },
         },
         sequelize,
         timestamps: false,
