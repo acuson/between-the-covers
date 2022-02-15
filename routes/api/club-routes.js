@@ -57,7 +57,7 @@ router.post('/join', async (req, res) => {
   try{
     const memJoin = await User_Club.create({
       user_id: req.body.user_id,
-      club_id: req.body.clubId
+      club_id: req.body.club_id
     });
     res.status(200).json(memJoin)
   } catch (err){

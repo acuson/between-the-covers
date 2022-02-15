@@ -1,5 +1,5 @@
 let joinClub = {
-    user_id: 2 // GET FROM SESSION LOGIN
+    user_id: 3 // GET FROM SESSION LOGIN
 };
 
 
@@ -15,8 +15,8 @@ function dislike(e){
 
 function like(e){
     const card = e.target.parentElement.parentElement
-    const clubId = card.dataset.clubid
-    joinClub.clubId = parseInt(clubId)
+    const club_id = card.dataset.club_id
+    joinClub.club_id = parseInt(club_id)
     console.log(JSON.stringify(joinClub))
     
     const options ={
