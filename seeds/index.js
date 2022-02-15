@@ -48,6 +48,8 @@ const clubData = [
         description: "This club is for the Golden Pandas!",
         club_book: "Eloquent Javascript",
         capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
     },
@@ -56,6 +58,8 @@ const clubData = [
         description: "A book club for diving deep into the magical world of a wine bottle..oh and Harry Potter",
         club_book: "Harry Potter and the Prisoner of Azkaban",
         capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
     },
@@ -64,9 +68,12 @@ const clubData = [
         description: "A club for (re)discovering the clasics!",
         club_book: null,
         capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
     }
+    
 ];
 
 const userClubData = [

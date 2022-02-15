@@ -25,7 +25,7 @@ router.get('/dashboard', async(req, res) =>{
 // GET explore book clubs page
 
 router.get('/explore', async(req, res) =>{
-    let clubs = [
+   /*  let clubs = [
         {
             name: "Club 1",
             description: 'This is a really fun club!!',
@@ -50,8 +50,17 @@ router.get('/explore', async(req, res) =>{
             name: "Club 6",
             description: 'This is a really fun club!!',
         }
-    ]
-    res.render('explore-clubs', {clubs: clubs})
+    ] */
+    try {
+        const clubs = await Club.findAll(/* {
+          include: [{ model: Book }, { model: User }],
+        } */);
+        res.render("explore-clubs", {clubs:clubs});
+      } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+      }
+    /* res.render('explore-clubs', {clubs: clubs}) */
 })
 
 router.get("/dashboard", async (req, res) => {

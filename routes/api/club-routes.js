@@ -6,9 +6,9 @@ const { User, Club, Book, Tag, User_Club } = require('../../models');
 // GET /api/clubs
 router.get('/', async (req, res) => {
   try {
-    const clubs = await Club.findAll({
+    const clubs = await Club.findAll(/* {
       include: [{ model: Book }, { model: User }],
-    });
+    } */);
     res.status(200).json(clubs);
   } catch (err) {
     console.error(err);
@@ -17,7 +17,17 @@ router.get('/', async (req, res) => {
 });
 
 //desc: get clubs for explore feature
-
+router.get('/', async (req, res) => {
+  try {
+    const clubs = await Club.findAll(/* {
+      include: [{ model: Book }, { model: User }],
+    } */);
+    res.render("explore-clubs", {clubs:clubs});
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+})
 
 // desc: get club by id
 // GET /api/clubs/:id
@@ -40,9 +50,15 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const reqBody = {
+      id: req.body.id,
+      name: req.body.name,
       description: req.body.description,
+      club_book: req.body.club_book,
       /* book_id: req.body.book_id, */
       capacity: req.body.capacity,
+      meeting_day: req.body.meeting_day,
+      meeting_time: req.body.meeting_time,
+      meeting_link: req.body.meeting_link,
       active: req.body.active,
     };
     const response = await Club.create(reqBody);

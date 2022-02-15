@@ -1,5 +1,5 @@
 let joinClub = {
-    user_id: 3 // GET FROM SESSION LOGIN
+    user_id: 5 // GET FROM SESSION LOGIN
 };
 
 
