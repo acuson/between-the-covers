@@ -1,3 +1,4 @@
+
 let joinClub = {
     user_id: 5 // GET FROM SESSION LOGIN
 };
@@ -17,7 +18,6 @@ function like(e){
     const card = e.target.parentElement.parentElement
     const club_id = card.dataset.club_id
     joinClub.club_id = parseInt(club_id)
-    console.log(JSON.stringify(joinClub))
     
     const options ={
         method: 'POST',
