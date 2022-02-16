@@ -16,18 +16,17 @@ router.get("/create-user", async (req, res) => {
 });
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
+// GET your book clubs page
+router.get("/dashboard", async (req, res) => {
+    const data = await Club.findAll();
+    const clubs = data.map(club => club.get({ plain: true }));
+    res.render("dashboard", { clubs });
+});
 
 router.get("/your-clubs", async (req, res) => {
     res.render("your-clubs");
 });
 
-// GET your book clubs page
-router.get("/dashboard", async (req, res) => {
-    const data = await Club.findAll();
-    const clubs = data.map(club => club.get({ plain: true }));
-    console.log(clubs);
-    res.render("dashboard", { clubs });
-});
 // GET explore book clubs page
 
 router.get("/explore", async (req, res) => {
@@ -69,13 +68,9 @@ router.get("/explore", async (req, res) => {
     /* res.render('explore-clubs', {clubs: clubs}) */
 });
 
-router.get("/dashboard", async (req, res) => {
-    res.render("dashboard");
-});
-
 // GET your book clubs page
 router.get("/your-clubs", async (req, res) => {
-    res.render("_your-clubs");
+    res.render("your-clubs");
 });
 // GET explore book clubs page
 
@@ -85,7 +80,7 @@ router.get("/explore", async (req, res) => {
 
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
-    res.render("_create-club");
+    res.render("create-club");
 });
 
 module.exports = router;
