@@ -23,7 +23,10 @@ router.get("/your-clubs", async (req, res) => {
 
 // GET your book clubs page
 router.get("/dashboard", async (req, res) => {
-    res.render("dashboard");
+    const data = await Club.findAll();
+    const clubs = data.map(club => club.get({ plain: true }));
+    console.log(clubs);
+    res.render("dashboard", { clubs });
 });
 // GET explore book clubs page
 
