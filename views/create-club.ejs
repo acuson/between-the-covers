@@ -7,17 +7,17 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
   <main>
 
-<form data-bitwarden-watching="1">
+<form data-bitwarden-watching="1" style="max-width: 40rem; padding-left: 5px" >
     <fieldset>
       <legend>Create Your BookClub!</legend>
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">Book Club Name:</label>
-        <input type="text" class="form-control" placeholder="Name Your Club!" id="inputDefault" data-com.bitwarden.browser.user-edited="yes">
+        <input type="text" class="form-control" placeholder="Name Your Club!" id="inputDefault name" data-com.bitwarden.browser.user-edited="yes">
       </div>
       
       <div class="form-group">
         <label for="exampleSelect1" class="form-label mt-4">How Large Would You Like Your Club To Be?</label>
-        <select class="form-select" id="exampleSelect1">
+        <select class="form-select" id="exampleSelect1 capacity">
           <option>Less Than 5 People</option>
           <option>0-5</option>
           <option>6-10</option>
@@ -28,16 +28,12 @@
    
       <div class="form-group">
         <label for="exampleTextarea" class="form-label mt-4">About The Club:</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"placeholder="Say Something About Your Club! Author, Genre etc."></textarea>
+        <textarea class="form-control" id="exampleTextarea description" rows="3"placeholder="Say Something About Your Club! Author, Genre etc."></textarea>
       </div>
-    
-      <div class="form-group">
-        <label for="formFile" class="form-label mt-4">Profile Picture</label>
-        <input class="form-control" type="file" id="formFile">
-      </div>
+
       <div class="form-group">
         <label for="exampleSelect1" class="form-label mt-4">What Day Works Best For You?</label>
-        <select class="form-select" id="exampleSelect1">
+        <select class="form-select" id="exampleSelect1 meeting_day">
           <option>Monday</option>
           <option>Tuesday</option>
           <option>Wednesday</option>
@@ -50,7 +46,7 @@
       </div>
       <div class="form-group">
         <label for="exampleSelect1" class="form-label mt-4">What Time Works Best For You?</label>
-        <select class="form-select" id="exampleSelect1">
+        <select class="form-select" id="exampleSelect1 meeting_time">
           <option>Morning (9AM-11AM est)</option>
           <option>Early Afternoon (12PM-3PM est)</option>
           <option>Late Afternoon (4PM-7PM est)</option>
@@ -63,12 +59,12 @@
         <legend class="mt-4" style="padding:5px">Pick Your Book</legend>
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">Name:</label>
-        <input type="text" class="form-control" placeholder="Name Your Club!" id="inputDefault" data-com.bitwarden.browser.user-edited="yes">
+        <input type="text" class="form-control" placeholder="Book!" id="inputDefault club_book" data-com.bitwarden.browser.user-edited="yes">
       </div>
 
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">Meeting Link:</label>
-        <input type="text" class="form-control" placeholder="Meeting Link" id="inputDefault" data-com.bitwarden.browser.user-edited="yes">
+        <input type="text" class="form-control" placeholder="Meeting Link" id="inputDefault meeting_link" data-com.bitwarden.browser.user-edited="yes">
       </div>
       <!-- <fieldset class="form-group">
         <legend class="mt-4">By Genre</legend>
