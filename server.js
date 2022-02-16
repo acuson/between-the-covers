@@ -44,6 +44,7 @@ app.set("layout", "/views/your-clubs");
 
 app.use(routes);
 
+// Initialize sequelize and start server
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Server started on port ${PORT}...`));
 });
