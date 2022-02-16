@@ -4,6 +4,7 @@ let descriptionEl = document.getElementById('description');
 let club_bookEl = document.getElementById('club_book');
 let meeting_linkEl = document.getElementById('meeting_link');
 let meeting_timeEl = document.getElementById('meeting_time');
+let club_dateEl = document.getElementById('club_date');
 
 function submitBtn(event){
     event.preventDefault();
@@ -15,7 +16,8 @@ function submitBtn(event){
         capacity: 5,
         meeting_day: 'darby',
         meeting_time: 'darby',
-        meeting_link: meeting_linkEl.value,
+        meeting_start: meeting_startEl.value,
+        meeting_link: club_dateEl.value,
         active: true,
     };
     const options ={
