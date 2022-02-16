@@ -31,6 +31,7 @@ const sess = {
     }),
 };
 
+app.use(session(sess));
 // Init view engine
 app.set("view engine", "ejs");
 
@@ -38,7 +39,6 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session(sess));
 
 app.set("layout", "/views/your-clubs");
 
