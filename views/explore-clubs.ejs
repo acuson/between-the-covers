@@ -13,11 +13,19 @@
                     <div class="card-body">
                         <h2><%= club.name %></h2>
                         <p><%= club.description %></p>
-                        <p>Meeting time: <%= club.meeting_day %> @ <%= club.meeting_time %><br>
-                        Starts 1/27<br>
-                        2 Spots left
+
+                        <p>Book: <% if(club.club_id == null){ %> 
+                                    TBD
+                                 <%} else{ %>
+                                    <%= club.club_book %>
+                                 <%} %>
+                            <br>Meeting time: <% if(club.meeting_day == null && club.meeting_time == null){ %> 
+                                                TBD
+                                              <%} else { %>
+                                              <%= club.meeting_day %> @ <%= club.meeting_time %><br>
+                            Start Date<br>
+                            2 Spots left
                         </p>
-                        
                     </div>
                     <div class="buttons d-flex justify-content-center">
                         <button class="dislike btn btn-primary m-2">Dislike ):</button>
