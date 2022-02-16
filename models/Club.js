@@ -23,7 +23,7 @@ Club.init(
             type: DataTypes.TEXT
         },
         capacity: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         meeting_day:{

@@ -4,7 +4,9 @@ let descriptionEl = document.getElementById('description');
 let club_bookEl = document.getElementById('club_book');
 let meeting_linkEl = document.getElementById('meeting_link');
 let meeting_timeEl = document.getElementById('meeting_time');
+let meeting_dayEl = document.getElementById('meeting_day');
 let club_dateEl = document.getElementById('club_date');
+let capacityEl = document.getElementById('capacity');
 
 function submitBtn(event){
     event.preventDefault();
@@ -13,10 +15,10 @@ function submitBtn(event){
         description: descriptionEl.value,
         club_book: club_bookEl.value,
         /* book_id: req.body.book_id, */
-        capacity: 5,
-        meeting_day: 'darby',
-        meeting_time: 'darby',
-        meeting_start: meeting_startEl.value,
+        capacity: capacityEl.value,
+        meeting_day: meeting_dayEl.value,
+        meeting_time: meeting_timeEl.value,
+        meeting_start: club_dateEl.value,
         meeting_link: club_dateEl.value,
         active: true,
     };
