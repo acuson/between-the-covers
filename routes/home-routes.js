@@ -1,12 +1,9 @@
 const router = require("express").Router();
-// const path = require("path");
-// require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const { User, Club, Tag, User_Club } = require("../models");
 const fetch = require("node-fetch");
 /* const joinData = require('../public/js/explore-functions'); */
-
-const API_KEY = process.env.GOOGLE_API_KEY;
-const BASE_URL = process.env.BASE_URL;
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -81,26 +78,6 @@ router.get("/your-clubs", async (req, res) => {
 
 router.get("/explore", async (req, res) => {
     res.render("explore-clubs");
-});
-
-// desc: render club profile page
-// GET: /clubs/:id
-router.get("/clubs/:id", async (req, res) => {
-    try {
-        const club = await Club.findByPk(req.params.id);
-        const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
-        const response = await fetch(url);
-        const { items } = await response.json();
-        const book = items[0].volumeInfo;
-        console.log(book.imageLinks.thumbnail);
-        res.render("club-profile", {
-            data: club,
-            image: book.imageLinks.thumbnail,
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-    }
 });
 
 // GET create book clubs page
