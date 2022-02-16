@@ -1,5 +1,9 @@
 const router = require("express").Router();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const { User, Club, Tag, User_Club } = require("../models");
+const fetch = require("node-fetch");
+/* const joinData = require('../public/js/explore-functions'); */
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -12,19 +16,21 @@ router.get("/create-user", async (req, res) => {
 });
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
-
-router.get('/your-clubs', async(req, res) =>{
-    res.render('your-clubs')
-})
-
 // GET your book clubs page
-router.get('/dashboard', async(req, res) =>{
-    res.render('dashboard')
-})
+router.get("/dashboard", async (req, res) => {
+    const data = await Club.findAll();
+    const clubs = data.map(club => club.get({ plain: true }));
+    res.render("dashboard", { clubs });
+});
+
+router.get("/your-clubs", async (req, res) => {
+    res.render("your-clubs");
+});
+
 // GET explore book clubs page
 
-router.get('/explore', async(req, res) =>{
-    let clubs = [
+router.get("/explore", async (req, res) => {
+    /*  let clubs = [
         {
             name: "Club 1",
             description: 'This is a really fun club!!',
@@ -49,17 +55,22 @@ router.get('/explore', async(req, res) =>{
             name: "Club 6",
             description: 'This is a really fun club!!',
         }
-    ]
-    res.render('explore-clubs', {clubs: clubs})
-})
-
-router.get("/dashboard", async (req, res) => {
-    res.render("dashboard");
+    ] */
+    try {
+        const clubs = await Club.findAll(/* {
+          include: [{ model: Book }, { model: User }],
+        } */);
+        res.render("explore-clubs", { clubs: clubs });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+    /* res.render('explore-clubs', {clubs: clubs}) */
 });
 
 // GET your book clubs page
 router.get("/your-clubs", async (req, res) => {
-    res.render("_your-clubs");
+    res.render("your-clubs");
 });
 // GET explore book clubs page
 
@@ -67,10 +78,9 @@ router.get("/explore", async (req, res) => {
     res.render("explore-clubs");
 });
 
-
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
-    res.render("_create-club");
+    res.render("create-club");
 });
 
 module.exports = router;

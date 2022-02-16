@@ -1,40 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('partials/_head')%>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
-  <main>
-    <div class="container d-flex flex-wrap m-5">
-        <!-- <div class="container d-flex flex-wrap m-5"> -->
-            <div class="card border-primary col-12 mb-3">
-                <div class="card-header">Your Book Clubs</div>
-                <div class="card-body">
-                <h4 class="card-title">Upcoming Meetings</h4>
-                <div class= 'meetings d-flex flex-column'>
-                    <a class="card-text" href=# >Book Title @ Meeting Time</a>
-                    <a class="card-text" href=# >Book Title @ Meeting Time</a>
-                    <a class="card-text" href=# >Book Title @ Meeting Time</a> 
+    <head>
+        <%- include('partials/_head')%>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
+            <%- include('partials/_nav') %>
+        </nav>
+        <main>
+            <div class="card d-flex flex-wrap m-5" style="border: white">
+                <!-- <div class="container d-flex flex-wrap m-5"> -->
+                <div
+                    class="card border-primary col-12 mb-3"
+                    style="min-width: 40rem"
+                >
+                    <div class="card-header">Your Book Clubs</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Upcoming Meetings</h4>
+                        <div class="meetings d-flex flex-column">
+                            <% clubs.forEach(club => { %>
+                            <a
+                                class="card-text"
+                                href="/club-page/<%= club.id %>"
+                                ><%= club.club_book %> <%= club.meeting_day %> @
+                                <%= club.meeting_time %></a
+                            >
+
+                            <% }); %>
+                        </div>
+                        <button type="button" class="btn btn-primary">
+                            <a
+                                href="./_your-clubs.ejs"
+                                style="color: white; text-decoration: none"
+                                >View All Clubs</a
+                            >
+                        </button>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-primary">View All Clubs</button>
+                <div class="inner-container d-flex justify-content-between">
+                    <div
+                        class="card border-primary col-5 pr-1"
+                        style="min-width: 19rem"
+                    >
+                        <div class="card-body">
+                            <!-- <h4 class="card-title">Create A Book Club</h4> -->
+                            <p class="card-text">
+                                Can't find a book club that works for you?
+                                Create a new one!
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-primary m-3">
+                            <a
+                                href="./_create-club.ejs"
+                                style="color: white; text-decoration: none"
+                                >Create a Book Club</a
+                            >
+                        </button>
+                    </div>
+                    <div
+                        class="card border-primary col-5 pl-1"
+                        style="min-width: 19rem"
+                    >
+                        <div class="card-body">
+                            <!-- <h4 class="card-title">Create A Book Club</h4> -->
+                            <p class="card-text">
+                                Looking for more book clubs to join?<br />
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-primary m-3">
+                            <a
+                                href="./explore"
+                                style="color: white; text-decoration: none"
+                                >Explore Book Clubs</a
+                            >
+                        </button>
+                    </div>
                 </div>
+
+                <!-- </div> -->
             </div>
-            <div class="card border-primary col-6 mb-3" style="max-width: 20rem;">
-                <div class="card-body">
-                <!-- <h4 class="card-title">Create A Book Club</h4> -->
-                <p class="card-text">Can't find a book club that works for you? Create a new one!</p>
-                <button type="button" class="btn btn-primary">Create a Book Club</button>
-                </div>
-            </div>
-            <div class="card border-primary col-6 mb-3" style="max-width: 20rem;">
-                <div class="card-body">
-                    <!-- <h4 class="card-title">Create A Book Club</h4> -->
-                    <p class="card-text">Looking for more book clubs to join?</p>
-                    <button type="button" class="btn btn-primary">Explore Book Clubs</button>
-                </div>
-            </div>
-        <!-- </div> -->
-    </div>
-</main>
-</body>
+        </main>
+    </body>
+</html>
