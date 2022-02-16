@@ -50,9 +50,14 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const reqBody = {
+      name: req.body.name,
       description: req.body.description,
+      club_book: req.body.club_book,
       /* book_id: req.body.book_id, */
       capacity: req.body.capacity,
+      meeting_day: req.body.meeting_day,
+      meeting_time: req.body.meeting_time,
+      meeting_link: req.body.meeting_link,
       active: req.body.active,
     };
     const response = await Club.create(reqBody);
