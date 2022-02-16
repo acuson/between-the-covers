@@ -42,12 +42,39 @@ const usersData = [
     },
 ];
 
-const clubData = {
-    description: "GOLDEN PANDAS",
-    book: "Manwhore +1",
-    capacity: 5,
-    active: true,
-};
+const clubData = [
+    {
+        name: "GOLDEN PANDAS",
+        description: "This club is for the Golden Pandas!",
+        club_book: "Eloquent Javascript",
+        capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
+        meeting_link: "https://discord.gg/vDstjReC",
+        active: true,
+    },
+    {
+        name: "Wizards, Witches, and Wine",
+        description: "A book club for diving deep into the magical world of a wine bottle..oh and Harry Potter",
+        club_book: "Harry Potter and the Prisoner of Azkaban",
+        capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
+        meeting_link: "https://discord.gg/vDstjReC",
+        active: true,
+    },
+    {
+        name: "The Readers in the Rye",
+        description: "A club for (re)discovering the clasics!",
+        club_book: null,
+        capacity: 5,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
+        meeting_link: "https://discord.gg/vDstjReC",
+        active: true,
+    }
+    
+];
 
 const userClubData = [
     {
@@ -77,8 +104,8 @@ const tagData = {
 };
 
 const seedUser = () => User.bulkCreate(usersData);
-const seedClub = () => Club.create(clubData);
-const seedUserClub = () => User_Club.create(userClubData);
+const seedClub = () => Club.bulkCreate(clubData);
+const seedUserClub = () => User_Club.bulkCreate(userClubData);
 const seedTag = () => Tag.create(tagData);
 
 const seedAll = async () => {
