@@ -50,7 +50,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const reqBody = {
-      id: req.body.id,
       name: req.body.name,
       description: req.body.description,
       club_book: req.body.club_book,

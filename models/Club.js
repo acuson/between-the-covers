@@ -17,7 +17,7 @@ Club.init(
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull:false
+            allowNull:true
         },
         club_book:{
             type: DataTypes.TEXT
