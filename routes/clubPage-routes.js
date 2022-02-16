@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
                 const response = await fetch(url);
                 const { items } = await response.json();
                 const book = items[0].volumeInfo;
+                console.log(book)
                 res.render("club-profile", {
                     club: club,
                     book: book,

@@ -20,13 +20,18 @@
                                     <%= club.club_book %>
                                  <%} %>
                             <br>Meeting time: <% if(club.meeting_day == null && club.meeting_time == null){ %> 
-                                                TBD
-                                              <%} else { %>
-                                              <%= club.meeting_day %> @ <%= club.meeting_time %><br>
-                                              <%} %>
-                            Start Date<br>
-                            2 Spots left
-                        </p>
+                                            TBD
+                                            <%} else { %>
+                                            <%= club.meeting_day %> @ <%= club.meeting_time %>
+                                            <%} %>
+                            <br>Start Date: <% if(club.start_date == null){ %> 
+                                            TBD
+                                            <%} else { %>
+                                            <%= club.start_date %>
+                                            <%} %>
+                            <br>2 Spots left <br>
+                            </p>
+                        <img src= "<%= club.img %>" style="height: 200px"/>
                     </div>
                     <div class="buttons d-flex justify-content-center">
                         <button class="dislike btn btn-primary m-2">Dislike ):</button>
