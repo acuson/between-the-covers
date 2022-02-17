@@ -1,14 +1,19 @@
-let clubName = document.querySelector("#club-name").value;
-let clubDescription = document.querySelector("#club-description").value;
-let clubBook = document.querySelector("#club-book").value;
-let clubCapacity = document.querySelector("#club-capacity").value;
-let clubTime = document.querySelector("#club-time").value;
-let clubLink = document.querySelector("#club-link").value;
+let clubName = document.querySelector("#club-name");
+let clubDescription = document.querySelector("#club-description");
+let clubBook = document.querySelector("#club-book");
+let clubCapacity = document.querySelector("#club-capacity");
+let clubTime = document.querySelector("#club-time");
+let clubLink = document.querySelector("#club-link");
+
+console.log(location);
 
 let btns = document.querySelectorAll("button");
 
-const updateClub = async () => {
-    const reqBody = {};
+const updateClub = async (key, value) => {
+    let reqBody = {};
+    reqBody[key] = value;
+
+    await fetch(`/api/clubs/${id}`);
 };
 
 const click = e => {
@@ -21,7 +26,10 @@ const click = e => {
     } else {
         currentBtn.setAttribute("disabled", "");
         currentBtn.setAttribute("data-active", false);
-        console.log(clubName);
+        console.log(currentBtn.value);
+        const key = currentBtn.getAttribute("id");
+        const value = currentBtn.value;
+        updateClub(key, value);
     }
 };
 
