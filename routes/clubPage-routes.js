@@ -44,13 +44,16 @@ router.get("/:id", async (req, res) => {
 router.get("/admin/:id", async (req, res) => {
     // Query db for club by primary key
     const club = await Club.findByPk(req.params.id);
+
     // Fetch book by title string from Google API to get book data
     const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
     const response = await fetch(url);
     const { items } = await response.json();
+
+    // Volume info from Googe fetch.
     const book = items[0].volumeInfo;
     res.render("club-dash", {
-        data: club,
+        club: club,
         book: book,
     });
 });

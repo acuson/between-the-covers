@@ -2,6 +2,13 @@
 <html lang="en">
     <head>
         <%- include('partials/_head') %>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -27,7 +34,8 @@
                         <h2>Book: <%= club.club_book%></h2>
                         <h2>Capacity: <%= club.capacity%></h2>
                         <h2>
-                            <%= club.meeting_day%> at <%= club.meeting_time%>
+                            Time: <%= club.meeting_day%> at <%=
+                            club.meeting_time%>
                         </h2>
 
                         <p>
@@ -37,6 +45,20 @@
                             >
                         </p>
                     </div>
+                    <% if (club.active) { %>
+                    <a
+                        href="/club-page/admin/<%= club.id %>"
+                        class="btn btn-primary mt-5"
+                        style="
+                            height: 60px;
+                            width: 60px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        "
+                        ><i class="fa-solid fa-gear" style="font-size: 30px"></i
+                    ></a>
+                    <% } %>
                 </div>
                 <div class="row p-4">
                     <h1>ANNOUNCEMENTS</h1>
