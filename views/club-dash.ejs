@@ -2,14 +2,114 @@
 <html lang="en">
     <head>
         <%- include('partials/_head') %>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="/css/club-dash-style.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <%- include('partials/_nav') %>
         </nav>
         <main>
-            <h1>CLUB DASH</h1>
+            <div class="container card mt-5">
+                <h1>CLUB DASHBOARD for <%= club.name %></h1>
+                <div class="row justify-content-between">
+                    <div class="col-3">
+                        <a href="<%= book.infoLink %>" target="_blank">
+                            <img
+                                src="<%= book.imageLinks.thumbnail %>"
+                                class="rounded img-thumbnail"
+                                alt="thumbnail"
+                                style="width: 100%"
+                            />
+                        </a>
+                    </div>
+
+                    <div class="club-data col-9 py-5">
+                        <div class=" row club-info">
+                            <h3 class="col-2">Name: 
+                            </h3>
+                                <input id="name" class="col-9" value="<%= club.name %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Description: 
+                            </h3>
+                                <input id="description" class="col-9" value="<%= club.description %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Book: 
+                            </h3>
+                                <input id="club_book" class="col-9" value="<%= club.club_book %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Capacity: 
+                            </h3>
+                                <input id="capacity" class="col-9" value="<%= club.capacity %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Day: 
+                            </h3>
+                                <input id="meeting_day" class="col-9" value="<%= club.meeting_day %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Time: 
+                            </h3>
+                                <input id="meeting_time" class="col-9" value="<%= club.meeting_time %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
+                            <h3 class="col-2">Link: 
+                            </h3>
+                                <input id="meeting_link" class="col-9" value="<%= club.meeting_link %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <h1>ANNOUNCEMENTS</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        In impedit itaque, laboriosam suscipit, sequi minus
+                        asperiores sapiente doloremque, corrupti optio rerum
+                        dignissimos. Laborum eligendi excepturi rerum? Aliquid
+                        laudantium sequi necessitatibus!
+                    </p>
+                </div>
+            </div>
         </main>
         <footer><%- include('partials/_footer')%></footer>
+        <script src="/js/clubAdmin.js"></script>
     </body>
 </html>
