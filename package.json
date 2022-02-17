@@ -19,9 +19,13 @@
         "express": "^4.17.2",
         "express-ejs-layouts": "^2.5.1",
         "express-sequelize": "^0.0.4",
+        "express-session": "^1.17.2",
         "jquery": "^3.6.0",
         "jsdom": "^19.0.0",
         "mysql2": "^2.3.3",
         "sequelize": "^6.16.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
     }
 }
