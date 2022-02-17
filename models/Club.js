@@ -11,37 +11,40 @@ Club.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name:{
+        name: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull:true
+            allowNull: true,
         },
-        club_book:{
-            type: DataTypes.TEXT
+        club_book: {
+            type: DataTypes.TEXT,
         },
         capacity: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
-        meeting_day:{
-            type: DataTypes.TEXT
+        meeting_day: {
+            type: DataTypes.TEXT,
         },
-        meeting_time:{
-            type: DataTypes.TEXT
+        meeting_time: {
+            type: DataTypes.TEXT,
         },
         start_date:{
             type: DataTypes.DATEONLY
         },
         meeting_link:{
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
         },
         active: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+        },
+        leader_id: {
+            type: DataTypes.STRING,
         },
     },
     {
