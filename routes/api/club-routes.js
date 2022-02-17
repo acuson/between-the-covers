@@ -57,6 +57,7 @@ router.post('/', async (req, res) => {
       capacity: req.body.capacity,
       meeting_day: req.body.meeting_day,
       meeting_time: req.body.meeting_time,
+      meeting_start: req.body.meeting_start,
       meeting_link: req.body.meeting_link,
       active: req.body.active,
     };
