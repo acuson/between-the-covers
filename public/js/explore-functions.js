@@ -32,6 +32,8 @@ function like(e){
         .catch(err => console.log(err))
     
 
+    
+
     card.style.visibility = 'hidden'
     card.style.opacity = 0;
     card.style.transition= 'opacity 1s';

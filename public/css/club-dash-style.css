@@ -1,0 +1,18 @@
+/* * {
+    border: 1px solid black;
+} */
+
+.club-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+input {
+    /* width: 80%; */
+    height: 60px;
+}
+
+button {
+    height: 60px;
+}
