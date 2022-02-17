@@ -36,7 +36,7 @@ router.get('/explore', async(req, res) =>{
         let clubs = await Club.findAll({
             raw:true,
         });
-      /*   clubs.forEach((club)=> if (club.book !=null ){
+        /* clubs.forEach(async(club)=> {if (club.book !=null ){
             const getImgLink = (clubs) => {
                 let newClubs = clubs.map(async club => {
                     const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
@@ -53,29 +53,20 @@ router.get('/explore', async(req, res) =>{
             }
             const newClubs = await getImgLink(clubs)
             console.log(newClubs)
-/*             res.render("explore-clubs", {clubs:clubs}); 
-        }) else {
-
-        } */
-
-
+        }})  */
 
         const getImgLink = (clubs) => {
-            let newClubs = clubs.map(async club => {
+            let newClubs =  clubs.map(async club => {
                 const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
                 const response = await fetch(url);
                 const {items} = await response.json();
                 const imgLink = items[0].volumeInfo.imageLinks.thumbnail
                 club.img = await imgLink;
-                console.log(club.img)
                 return await (club)
             })
-            console.log(newClubs)
-            console.log('in promise')
             return Promise.all(newClubs)
         }
-        const newClubs = await getImgLink(clubs)
-        console.log(newClubs)
+        const newClubs = await getImgLink(clubs) 
         res.render("explore-clubs", {clubs:clubs});
 
     

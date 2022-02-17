@@ -9,12 +9,11 @@
         <div class="container" style="position: relative; width: 100vh; height: 90vh;">
 
             <% clubs.forEach(club => { %>
-                <div class="card border-primary m-3" style="width: 20rem; height: 30rem; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" data-club_id="<%= club.id%>">
+                <div class="card border-primary m-3" style="width: 20rem; min-height: 45rem; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" data-club_id="<%= club.id%>">
                     <div class="card-body">
                         <h2><%= club.name %></h2>
-                        <p><%= club.description %></p>
-
-                        <p>Book: <% if(club.club_id == null){ %> 
+                        <p style="height: 75px;"><%= club.description %></p>
+                        <p>Book: <% if(club.club_book == null){ %> 
                                     TBD
                                  <%} else{ %>
                                     <%= club.club_book %>
@@ -30,12 +29,16 @@
                                             <%= club.start_date %>
                                             <%} %>
                             <br>2 Spots left <br>
-                            </p>
-                        <img src= "<%= club.img %>" style="height: 200px"/>
+                        </p>
+                        <% if (club.club_book == null) { %>
+                            <img src="/images/tbd-book.png" style="height:20rem"/>
+                        <%} else {%>
+                            <img src="<%= club.img%>" style="height:20rem"/>
+                        <% } %>
                     </div>
                     <div class="buttons d-flex justify-content-center">
-                        <button class="dislike btn btn-primary m-2">Dislike ):</button>
-                        <button class="like btn btn-primary m-2">Like</button>
+                        <button class="dislike btn btn-primary m-2">Pass ):</button>
+                        <button class="like btn btn-primary m-2">Join :)</button>
                     </div>
                 </div>
             <% }) %>
