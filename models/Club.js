@@ -23,19 +23,14 @@ Club.init(
             type: DataTypes.TEXT,
         },
         capacity: {
-            type: DataTypes.TEXT,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
-<<<<<<< HEAD
         size:{
             type: DataTypes.INTEGER
         },
         meeting_day:{
             type: DataTypes.TEXT
-=======
-        meeting_day: {
-            type: DataTypes.TEXT,
->>>>>>> 07ae92a25bb89eda2dc212ab3438672d79dfd725
         },
         meeting_time: {
             type: DataTypes.TEXT,
@@ -51,7 +46,6 @@ Club.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-<<<<<<< HEAD
         joinable: {
             type: DataTypes.BOOLEAN,
             allowNull:false,
@@ -63,11 +57,6 @@ Club.init(
                 }
             }
         }
-=======
-        leader_id: {
-            type: DataTypes.STRING,
-        },
->>>>>>> 07ae92a25bb89eda2dc212ab3438672d79dfd725
     },
     {
         sequelize,

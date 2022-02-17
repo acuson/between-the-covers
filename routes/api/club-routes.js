@@ -53,8 +53,9 @@ router.post('/', async (req, res) => {
       name: req.body.name,
       description: req.body.description,
       club_book: req.body.club_book,
-      /* book_id: req.body.book_id, */
+      book_id: req.body.book_id,
       capacity: req.body.capacity,
+      size: 1,
       meeting_day: req.body.meeting_day,
       meeting_time: req.body.meeting_time,
       meeting_start: req.body.meeting_start,
