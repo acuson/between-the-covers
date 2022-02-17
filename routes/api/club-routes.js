@@ -93,6 +93,9 @@ router.put("/:id", async (req, res) => {
                 id: req.params.id,
             },
         });
+        res.status(200).json({
+            message: `Success: Club with id ${req.params.id} was updated with new info ${req.body}`,
+        });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
