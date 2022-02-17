@@ -19,16 +19,27 @@
             <div class="container card mt-5">
                 <h1>CLUB DASHBOARD for <%= club.name %></h1>
                 <div class="row justify-content-between">
-                    <div class="col-3">
-                        <a href="<%= book.infoLink %>" target="_blank">
+                    <% if (club.club_book == null) { %>
+                        <div class="col-3">
                             <img
-                                src="<%= book.imageLinks.thumbnail %>"
+                                src="/images/logo.png"
                                 class="rounded img-thumbnail"
                                 alt="thumbnail"
                                 style="width: 100%"
                             />
-                        </a>
-                    </div>
+                        </div>
+                        <% } else { %>
+                        <div class="col-3">
+                            <a href="<%= book.infoLink %>" target="_blank">
+                                <img
+                                    src="<%= book.imageLinks.thumbnail %>"
+                                    class="rounded img-thumbnail"
+                                    alt="thumbnail"
+                                    style="width: 100%"
+                                />
+                            </a>
+                        </div>
+                        <% }%>
 
                     <div class="club-data col-9 py-5">
                         <div class=" row club-info">
