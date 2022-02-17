@@ -34,18 +34,28 @@ const updateClub = async (key, value) => {
 };
 
 // Toggle textarea enabled/disabled and save
-const editData = e => {
+const toggleEdit = e => {
     e.preventDefault();
     // Selects textarea sibling
     let currentBtn = e.currentTarget.previousElementSibling;
+    let iconEl = e.currentTarget.children[0];
     if (currentBtn.getAttribute("data-active") == "false") {
         currentBtn.removeAttribute("disabled");
         currentBtn.setAttribute("data-active", true);
+
+        // Change icon for funsies
+        iconEl.classList.remove("fa-gear");
+        iconEl.classList.add("fa-floppy-disk");
     } else {
         currentBtn.setAttribute("disabled", "");
         currentBtn.setAttribute("data-active", false);
         const key = currentBtn.getAttribute("id");
         const value = currentBtn.value;
+
+        // Change icon for funsies
+        iconEl.classList.remove("fa-floppy-disk");
+        iconEl.classList.add("fa-gear");
+
         // Calls function to update club, passing in key from id selector as param
         updateClub(key, value);
     }
@@ -53,5 +63,5 @@ const editData = e => {
 
 // Event listener for each button
 btns.forEach(btn => {
-    btn.addEventListener("click", editData);
+    btn.addEventListener("click", toggleEdit);
 });
