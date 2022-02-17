@@ -10,11 +10,11 @@ let btns = document.querySelectorAll("button");
 const updateClub = async (key, value) => {
     let reqBody = {};
     reqBody[key] = value;
-    const postId = window.location.search;
-    const clubId = new URLSearchParams(postId).get("id");
+    const urlString = window.location.search;
+    const clubId = new URLSearchParams(urlString).get("id");
     console.log(clubId);
     console.log(reqBody);
-    await fetch(`/api/clubs/${postId}`, {
+    await fetch(`/api/clubs/${clubId}`, {
         method: "PUT",
         body: JSON.stringify(reqBody),
         headers: {
