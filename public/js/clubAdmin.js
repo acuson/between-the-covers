@@ -26,7 +26,7 @@ const updateClub = async (key, value) => {
                 "Content-Type": "application/json",
             },
         });
-        console.log(`Club with id ${clubId} has been updated`);
+        location.reload();
     } catch (err) {
         console.log(err);
         console.log("Club not updated");
