@@ -2,8 +2,9 @@ let clubName = document.querySelector("#club-name");
 let clubDescription = document.querySelector("#club-description");
 let clubBook = document.querySelector("#club-book");
 let clubCapacity = document.querySelector("#club-capacity");
-let clubTime = document.querySelector("#club-time");
-let clubLink = document.querySelector("#club-link");
+let clubDay = document.querySelector("#meeting_day");
+let clubTime = document.querySelector("#meeting_time");
+let clubLink = document.querySelector("#meeting_link");
 
 let btns = document.querySelectorAll("button");
 
