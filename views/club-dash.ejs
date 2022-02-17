@@ -68,9 +68,18 @@
                             </button>
                         </div>
                         <div class=" row club-info">
+                            <h3 class="col-2">Day: 
+                            </h3>
+                                <input id="meeting_day" class="col-9" value="<%= club.meeting_day %>" data-active="false" disabled>
+                            </input> 
+                            <button class="btn btn-primary col-1">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                        </div>
+                        <div class=" row club-info">
                             <h3 class="col-2">Time: 
                             </h3>
-                                <input id="club-time" class="col-9" value="<%= club.meeting_day %> at <%= club.meeting_time %>" data-active="false" disabled>
+                                <input id="meeting_time" class="col-9" value="<%= club.meeting_time %>" data-active="false" disabled>
                             </input> 
                             <button class="btn btn-primary col-1">
                                 <i class="fa-solid fa-gear"></i>
