@@ -10,9 +10,17 @@ let btns = document.querySelectorAll("button");
 const updateClub = async (key, value) => {
     let reqBody = {};
     reqBody[key] = value;
-    const postId = new URLSearchParams(window.location.search.id);
-    // await fetch(`/api/clubs/${id}`);
-    console.log(postId);
+    const postId = window.location.search;
+    const clubId = new URLSearchParams(postId).get("id");
+    console.log(clubId);
+    console.log(reqBody);
+    await fetch(`/api/clubs/${postId}`, {
+        method: "PUT",
+        body: JSON.stringify(reqBody),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 };
 
 const click = e => {
