@@ -28,6 +28,18 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 })
+//desc: get clubs for explore feature
+router.get('/', async (req, res) => {
+  try {
+    const clubs = await Club.findAll(/* {
+      include: [{ model: Book }, { model: User }],
+    } */);
+    res.render("explore-clubs", {clubs:clubs});
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+})
 
 // desc: get club by id
 // GET /api/clubs/:id
