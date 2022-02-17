@@ -1,5 +1,5 @@
 $('table tr').on('click', 'th', function () {
-    window.location.href = `/club-profile/${club.id}`;
+    window.location.href = `/club-page/${club.id}`;
  }) 
 
 //  user_id;
@@ -8,15 +8,15 @@ $('table tr').on('click', 'th', function () {
 function submitBtn(event){
     event.preventDefault();
     let yourClub = {
-        name: nameEl.value,
-        description: descriptionEl.value,
-        club_book: club_bookEl.value,
-        /* book_id: req.body.book_id, */
-        capacity: capacityEl.value,
-        meeting_day: meeting_dayEl.value,
-        meeting_time: meeting_timeEl.value,
-        meeting_start: club_dateEl.value,
-        meeting_link: club_dateEl.value,
+        // name: nameEl.value,
+        // description: descriptionEl.value,
+        // club_book: club_bookEl.value,
+        // /* book_id: req.body.book_id, */
+        // capacity: capacityEl.value,
+        // meeting_day: meeting_dayEl.value,
+        // meeting_time: meeting_timeEl.value,
+        // meeting_start: club_dateEl.value,
+        // meeting_link: club_dateEl.value,
         active: true,
     };
     const options ={
