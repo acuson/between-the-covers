@@ -5,14 +5,12 @@ let clubCapacity = document.querySelector("#club-capacity");
 let clubTime = document.querySelector("#club-time");
 let clubLink = document.querySelector("#club-link");
 
-console.log(location);
-
 let btns = document.querySelectorAll("button");
 
 const updateClub = async (key, value) => {
     let reqBody = {};
     reqBody[key] = value;
-    const postId = new URLSearchParams(window.location.search).get("id");
+    const postId = new URLSearchParams(window.location.search.id);
     // await fetch(`/api/clubs/${id}`);
     console.log(postId);
 };
@@ -27,7 +25,6 @@ const click = e => {
     } else {
         currentBtn.setAttribute("disabled", "");
         currentBtn.setAttribute("data-active", false);
-        console.log(currentBtn.value);
         const key = currentBtn.getAttribute("id");
         const value = currentBtn.value;
         updateClub(key, value);
