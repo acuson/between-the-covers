@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 // GET create user page
 router.get("/create-user", async (req, res) => {
-    res.render("create-user");
+    res.render("_create-user");
 });
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
@@ -25,7 +25,10 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { clubs });
 });
 
+//getting data from clubs to populate into the your-clubs page
 router.get("/your-clubs", async (req, res) => {
+    const data = await Club.findAll();
+    const clubs = data.map(club => club.get({ plain: true }));
     res.render("your-clubs");
 });
 
