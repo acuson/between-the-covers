@@ -24,6 +24,8 @@ router.get("/dashboard", async (req, res) => {
 });
 
 router.get("/your-clubs", async (req, res) => {
+    const data = await Club.findAll();
+    
     res.render("your-clubs");
 });
 
