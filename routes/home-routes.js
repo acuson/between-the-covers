@@ -23,9 +23,10 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { clubs });
 });
 
+//getting data from clubs to populate into the your-clubs page
 router.get("/your-clubs", async (req, res) => {
     const data = await Club.findAll();
-    
+    const clubs = data.map(club => club.get({ plain: true }));
     res.render("your-clubs");
 });
 

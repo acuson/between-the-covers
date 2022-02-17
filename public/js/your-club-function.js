@@ -7,7 +7,7 @@ $('table tr').on('click', 'th', function () {
 //  club-page/id of the club
 function submitBtn(event){
     event.preventDefault();
-    let createClub = {
+    let yourClub = {
         name: nameEl.value,
         description: descriptionEl.value,
         club_book: club_bookEl.value,
@@ -24,7 +24,7 @@ function submitBtn(event){
         headers:{
             'Content-Type': 'application/json',
         },
-        body:JSON.stringify(createClub)
+        body:JSON.stringify(yourClub)
     }
     
     fetch('/api/clubs/', options)
