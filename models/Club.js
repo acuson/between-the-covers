@@ -26,6 +26,9 @@ Club.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        size:{
+            type: DataTypes.INTEGER
+        },
         meeting_day:{
             type: DataTypes.TEXT
         },
@@ -43,6 +46,17 @@ Club.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
+        joinable: {
+            type: DataTypes.BOOLEAN,
+            allowNull:false,
+            set: function(){
+                if(this.getDataValue('capacity')-this.getDataValue('size') > 0){
+                    this.setDataValue('joinable', true)
+                } else{
+                    this.setDataValue('joinable', false)
+                }
+            }
+        }
     },
     {
         sequelize,

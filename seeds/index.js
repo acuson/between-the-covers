@@ -48,33 +48,39 @@ const clubData = [
         description: "This club is for the Golden Pandas!",
         club_book: "Eloquent Javascript",
         capacity: 5,
+        size: 5,
         meeting_day: "Monday",
         meeting_time: "7pm",
         start_date: "2022-02-21",
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
+        joinable: true
     },
     {
         name: "Wizards, Witches, and Wine",
         description: "A book club for diving deep into the magical world of a wine bottle..oh and Harry Potter",
         club_book: "Harry Potter and the Prisoner of Azkaban",
         capacity: 5,
+        size:1,
         meeting_day: "Monday",
         meeting_time: "7pm",
         start_date: "2022-02-21",
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
+        joinable: true
     },
     {
         name: "The Readers in the Rye",
         description: "A club for (re)discovering the clasics!",
         club_book: null,
         capacity: 5,
+        size:1,
         meeting_day: null,
         meeting_time: null,
         start_date: null,
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
+        joinable:true
     }
     
 ];

@@ -83,11 +83,22 @@ router.post('/join', async (req, res) => {
   }
 })
 
-// desc: update club
+// desc: update club size when member joins
 // PUT /api/clubs/:id
 router.put('/:id', async (req, res) => {
-  try {
-    // do stuff
+  try { 
+    const updateClubData = await Club.update(
+      {
+        size: req.body.size
+      },
+      {where:{
+        id:req.params.id,
+        }
+      });
+    if(!updateClubData){
+      res.status(400).json({message:'No club is associated with that id'})
+    }  
+    res.status(200).json({message:'Size of club updated'})
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
