@@ -17,6 +17,16 @@
         <main>
             <div class="container card mt-5">
                 <div class="row">
+                    <% if (club.club_book == null) { %>
+                    <div class="col-3">
+                        <img
+                            src="/images/logo.png"
+                            class="rounded img-thumbnail"
+                            alt="thumbnail"
+                            style="width: 100%"
+                        />
+                    </div>
+                    <% } else { %>
                     <div class="col-3">
                         <a href="<%= book.infoLink %>" target="_blank">
                             <img
@@ -27,7 +37,7 @@
                             />
                         </a>
                     </div>
-
+                    <% }%>
                     <div class="col-8 p-5">
                         <h1>Name: <%= club.name %></h1>
                         <h2>Description: <%= club.description%></h2>
