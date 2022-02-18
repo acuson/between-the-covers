@@ -35,14 +35,14 @@ Book.init(
         publisher: {
             type: DataTypes.STRING,
         },
-        club_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: "club",
-                key: "id",
-            },
-        },
+        // club_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: "club",
+        //         key: "id",
+        //     },
+        // },
     },
     {
         sequelize,

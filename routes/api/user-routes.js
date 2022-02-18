@@ -37,6 +37,20 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User_Club.findAll(req.params.id, {
+      //or findbypk
+      where: {
+        id: req.params.id,
+      },
+    });
+       res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+
 // POST /api/users/login
 router.post('/login', async (req, res) => {
   try {
