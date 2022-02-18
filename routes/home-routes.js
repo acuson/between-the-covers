@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 // GET create user page
 router.get("/create-user", async (req, res) => {
-    res.render("_create-user");
+    res.render("create-user");
 });
 // GET dashboard
 // for now you can copy this rout and replace dashboard with your page name to check if it renders
@@ -112,7 +112,11 @@ router.get("/dashboard", async (req, res) => {
 
 // GET your book clubs page
 router.get("/your-clubs", async (req, res) => {
-    res.render("your-clubs");
+    let id = req.session.userData.id;
+    let currentUserData = User.findByPk(id, {
+        include: [{ model : club}]
+    })
+    res.render("your-clubs", currentUserData);
 });
 // GET explore book clubs page
 

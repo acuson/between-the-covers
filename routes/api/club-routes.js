@@ -6,9 +6,9 @@ const { User, Club, Book, Tag, User_Club } = require("../../models");
 // GET /api/clubs
 router.get("/", async (req, res) => {
     try {
-        const clubs = await Club.findAll(/* {
-      include: [{ model: Book }, { model: User }],
-    } */);
+        const clubs = await Club.findAll({
+      include: [ { model: User }],
+    });
         res.status(200).json(clubs);
     } catch (err) {
         console.error(err);
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const clubs = await Club.findAll({
-      include: [{ model: Book }, { model: User }],
+      include: [{ model: User }],
     });
 
     res.render("explore-clubs", {clubs:clubs}).json(clubs);
