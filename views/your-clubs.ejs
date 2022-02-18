@@ -6,43 +6,13 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
   <main>
+    <h3 scope="col">Clubs:</h3>
     <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Clubs:</th>
-        </tr>
-      </thead>
+      
       <tbody>
-        <tr class="table-active" id="container">                            
-          <th scope="row"style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <!-- <tr class="table-primary">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-secondary">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-success">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-danger">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-warning">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-info">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-light">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr>
-        <tr class="table-dark">
-          <th scope="row" style="text-align: center">Book Club Name</th>
-        </tr> -->
+          <% data.clubs.forEach(club => { %>
+            <tr class="table-primary" id="container">                           <th scope="row"style="text-align: center"><a href=club-page/<% ${id} %> ><%= club.club_book %></th>
+         <% }) %>
       </tbody>
      </table>
     </main>
