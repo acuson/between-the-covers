@@ -106,7 +106,13 @@ router.put('/:id', async (req, res) => {
   try { 
     const updateSize = await Club.increment(
       {size: +1},
-      {where:{ id:req.params.id}});
+      {where:{ id:req.params.id}})
+      .on('success', (Club) =>{
+        if(size == capacity){
+          Club.update({joinable: false})
+        }
+      })
+
     if(!updateSize){
       res.status(400).json({message:'No club is associated with that id'})
     }  

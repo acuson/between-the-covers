@@ -85,7 +85,7 @@ const clubData = [
     {
         name: "History Book Club",
         description: "A group for people who love history and reading!",
-        club_book: "Eloquent Javascript",
+        club_book: "In the Shadow of the Banyan",
         capacity: 10,
         size: 3,
         meeting_day: "Monday",
@@ -94,7 +94,21 @@ const clubData = [
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
         joinable: true
-    }
+    },
+    {
+        name: "History Book Club",
+        description: "A group for people who love history and reading!",
+        club_book: "In the Shadow of the Banyan",
+        capacity: 15,
+        size: 8,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
+        start_date: "2022-02-21",
+        meeting_link: "https://discord.gg/vDstjReC",
+        active: true,
+        joinable: true
+    },
+    
     
 ];
 

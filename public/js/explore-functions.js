@@ -19,7 +19,7 @@ function like(e){
     joinClub.club_id = parseInt(club_id)
     console.log(JSON.stringify(joinClub))
     
-    const options ={
+    const postOpts ={
         method: 'POST',
         headers:{
             'Content-Type': 'application/json',
@@ -27,11 +27,21 @@ function like(e){
         body:JSON.stringify(joinClub)
     }
 
-    fetch('/api/clubs/join', options)
+    fetch('/api/clubs/join', postOpts)
         .then(data => console.log(data.json))
         .catch(err => console.log(err))
     
+    const putOpts ={
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/json',
+        }
+    }
 
+    fetch(`/api/clubs/${club_id}`, putOpts)
+        .then(data => console.log(data.json))
+        .catch(err => console.log(err))
+    
     
 
     card.style.visibility = 'hidden'
