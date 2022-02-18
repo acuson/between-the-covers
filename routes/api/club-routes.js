@@ -89,7 +89,7 @@ router.post("/", async (req, res) => {
 router.post("/join", async (req, res) => {
     try {
         const memJoin = await User_Club.create({
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             club_id: req.body.club_id,
         });
         res.status(200).json(memJoin);
@@ -105,7 +105,12 @@ router.put("/join/:id", async (req, res) => {
         const updateSize = await Club.increment(
             { size: +1 },
             { where: { id: req.params.id } }
-        );
+        ).on("success", Club => {
+            if (size == capacity) {
+                Club.update({ joinable: false });
+            }
+        });
+
         if (!updateSize) {
             res.status(400).json({
                 message: "No club is associated with that id",
