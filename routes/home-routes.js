@@ -111,8 +111,10 @@ router.get("/your-clubs", async (req, res) => {
     let data = await User.findByPk(1, {
         include: [{ model: Club}],
     })
+    // username: req.body.user
     let user = data.get({plain: true})
     console.log(user)
+    console.log(data.clubs)
     res.render("your-clubs", {data: user});
 });
 // GET explore book clubs page

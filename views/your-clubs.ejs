@@ -10,12 +10,9 @@
     <table class="table table-hover">
       
       <tbody>
-        <%= data.clubs[0].club_book %>
-        <%= data.clubs.forEach(club => { %>
-          <tr class="table-primary" id="container">                            
-            <th scope="row"style="text-align: center">Book Name</th>
-          </tr>
-          <% }) %>
+          <% data.clubs.forEach(club => { %>
+            <tr class="table-primary" id="container">                           <th scope="row"style="text-align: center"><a href=club-page/<% ${id} %> ><%= club.club_book %></th>
+         <% }) %>
       </tbody>
      </table>
     </main>
