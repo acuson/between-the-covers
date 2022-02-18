@@ -1,6 +1,6 @@
-$('table tr').on('click', 'th', function () {
-    href = `/club-page/${id}`;
- }) 
+// $('table tr').on('click', 'th', function () {
+//     href = `/club-page/${id}`;
+//  }) 
 
 //  user_id;
 // function fetchYourClubs(){
@@ -11,17 +11,17 @@ $('table tr').on('click', 'th', function () {
 //   })
 //   .then(function (data) {
 //       console.log(data)
-fetch('/api/users/')
-.then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    console.log(data[0].id);
-    // let user = 
+// fetch('/api/users/')
+// .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//     console.log(data[0].id);
+//     // let user = 
 
-  })
-  
+//   })
+//   console.log(currentUserData)
 // })
 //   function dataDisplay(data){
 //       console.log(data);
