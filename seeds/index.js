@@ -47,7 +47,7 @@ const clubData = [
         name: "GOLDEN PANDAS",
         description: "This club is for the Golden Pandas!",
         club_book: "Eloquent Javascript",
-        capacity: 5,
+        capacity: 6,
         size: 5,
         meeting_day: "Monday",
         meeting_time: "7pm",
@@ -81,6 +81,19 @@ const clubData = [
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
         joinable:true
+    },
+    {
+        name: "History Book Club",
+        description: "A group for people who love history and reading!",
+        club_book: "Eloquent Javascript",
+        capacity: 10,
+        size: 3,
+        meeting_day: "Monday",
+        meeting_time: "7pm",
+        start_date: "2022-02-21",
+        meeting_link: "https://discord.gg/vDstjReC",
+        active: true,
+        joinable: true
     }
     
 ];
