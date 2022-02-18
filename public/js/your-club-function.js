@@ -1,6 +1,4 @@
-// $('table tr').on('click', 'th', function () {
-//     href = `/club-page/${id}`;
-//  }) 
+
 // let book = data.clubs[0].club_book;
 
 //  user_id;
