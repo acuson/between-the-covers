@@ -1,6 +1,7 @@
 ## Login Page
 * Login page that takes in login information or directs to create user page
-* Create user page that takes user input and redirects to dashboard once user is created
+* Create user page that takes user input and 
+redirects to dashboard once user is created
 
 ## Dashboard
 Dashboard page that has three sections that redirect to 3 different pages:
