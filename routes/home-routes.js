@@ -114,7 +114,7 @@ router.get("/dashboard", async (req, res) => {
 router.get("/your-clubs", async (req, res) => {
     let id = req.session.userData.id;
     let currentUserData = User.findByPk(id, {
-        include: [{ model : club}]
+        include: [{ model : Club}]
     })
     res.render("your-clubs", currentUserData);
 });
