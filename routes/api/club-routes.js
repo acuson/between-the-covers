@@ -91,7 +91,7 @@ router.post('/', async (req, res) => {
 router.post("/join", async (req, res) => {
     try {
         const memJoin = await User_Club.create({
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             club_id: req.body.club_id,
         });
         res.status(200).json(memJoin);
@@ -102,7 +102,7 @@ router.post("/join", async (req, res) => {
 
 // desc: update club size when member joins
 // PUT /api/clubs/:id
-router.put('/:id', async (req, res) => {
+router.put('join/:id', async (req, res) => {
   try { 
     const updateSize = await Club.increment(
       {size: +1},
@@ -122,7 +122,8 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 })
-/* router.put("/:id", async (req, res) => {
+
+router.put("/:id", async (req, res) => {
     try {
         await Club.update(req.body, {
             where: {
@@ -136,7 +137,7 @@ router.put('/:id', async (req, res) => {
         console.error(err);
         res.status(500).json(err);
     }
-}); */
+});
 
 // desc: delete club
 // DELETE /api/clubs/:id

@@ -1,6 +1,4 @@
-let joinClub = {
-    user_id: 5 // GET FROM SESSION LOGIN
-};
+let joinClub = {}
 
 
 $('.dislike').on('click', dislike)
@@ -16,8 +14,11 @@ function dislike(e){
 function like(e){
     const card = e.target.parentElement.parentElement
     const club_id = card.dataset.club_id
-    joinClub.club_id = parseInt(club_id)
-    console.log(JSON.stringify(joinClub))
+    club_id = parseInt(club_id)
+    const joinClub = {
+        club_id: club_id
+    }
+
     
     const postOpts ={
         method: 'POST',
@@ -31,7 +32,7 @@ function like(e){
         .then(data => console.log(data.json))
         .catch(err => console.log(err))
     
-    const putOpts ={
+   /*  const putOpts ={
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ function like(e){
 
     fetch(`/api/clubs/${club_id}`, putOpts)
         .then(data => console.log(data.json))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err)) */
     
     
 
