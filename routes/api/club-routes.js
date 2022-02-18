@@ -23,26 +23,24 @@ router.get("/", async (req, res) => {
       include: [{ model: User }],
     });
 
-    res.render("explore-clubs", {clubs:clubs}).json(clubs);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-})
+        res.render("explore-clubs", { clubs: clubs });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
 //desc: get clubs for explore feature
-// router.get('/', async (req, res) => {
-//   try {
-//     const clubs = await Club.findAll(/* {
-//       include: [{ model: Book }, { model: User }],
-//     } */);
-//     res.status(200).json(clubs);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json(err);
-//   }
-// })
-
-
+router.get("/", async (req, res) => {
+    try {
+        const clubs = await Club.findAll(/* {
+      include: [{ model: Book }, { model: User }],
+    } */);
+        res.render("explore-clubs", { clubs: clubs });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
 
 // desc: get club by id
 // GET /api/clubs/:id
@@ -68,8 +66,9 @@ router.post("/", async (req, res) => {
             name: req.body.name,
             description: req.body.description,
             club_book: req.body.club_book,
-            /* book_id: req.body.book_id, */
+            book_id: req.body.book_id,
             capacity: req.body.capacity,
+            size: 1,
             meeting_day: req.body.meeting_day,
             meeting_time: req.body.meeting_time,
             meeting_start: req.body.meeting_start,
@@ -90,7 +89,7 @@ router.post("/", async (req, res) => {
 router.post("/join", async (req, res) => {
     try {
         const memJoin = await User_Club.create({
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             club_id: req.body.club_id,
         });
         res.status(200).json(memJoin);
@@ -99,8 +98,31 @@ router.post("/join", async (req, res) => {
     }
 });
 
-// desc: update club
+// desc: update club size when member joins
 // PUT /api/clubs/:id
+router.put("/join/:id", async (req, res) => {
+    try {
+        const updateSize = await Club.increment(
+            { size: +1 },
+            { where: { id: req.params.id } }
+        ).on("success", Club => {
+            if (size == capacity) {
+                Club.update({ joinable: false });
+            }
+        });
+
+        if (!updateSize) {
+            res.status(400).json({
+                message: "No club is associated with that id",
+            });
+        }
+        res.status(200).json({ message: "Size of club updated" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
 router.put("/:id", async (req, res) => {
     try {
         await Club.update(req.body, {

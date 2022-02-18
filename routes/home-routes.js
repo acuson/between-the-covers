@@ -31,27 +31,13 @@ router.get("/dashboard", async (req, res) => {
 
 router.get('/explore', async(req, res) =>{
     try {
-        let clubs = await Club.findAll({
-            raw:true,
-        });
-        /* clubs.forEach(async(club)=> {if (club.book !=null ){
-            const getImgLink = (clubs) => {
-                let newClubs = clubs.map(async club => {
-                    const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
-                    const response = await fetch(url);
-                    const {items} = await response.json();
-                    const imgLink = items[0].volumeInfo.imageLinks.thumbnail
-                    club.img = await imgLink;
-                    console.log(club.img)
-                    return await (club)
-                })
-                console.log(newClubs)
-                console.log('in promise')
-                return Promise.all(newClubs)
-            }
-            const newClubs = await getImgLink(clubs)
-            console.log(newClubs)
-        }})  */
+        let clubs = await Club.findAll(
+            {
+                where:{
+                    joinable:true
+                },
+                raw:true,
+            });
 
         const getImgLink = (clubs) => {
             let newClubs =  clubs.map(async club => {
@@ -67,34 +53,6 @@ router.get('/explore', async(req, res) =>{
         const newClubs = await getImgLink(clubs) 
         res.render("explore-clubs", {clubs:clubs});
 
-    
-        /* async function getImgLink(clubs){
-            await clubs.forEach(async club => {
-                const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
-                const response = await fetch(url);
-                const {items} = await response.json();
-                const imgLink = items[0].volumeInfo.imageLinks.thumbnail
-                club.img = await imgLink;
-                console.log("this is running")
-            })
-        }
-        await getImgLink(clubs)
-        console.log(clubs)
-        res.render("explore-clubs", {clubs:clubs});
-
-        /* var getImgLink = new Promise((resolve, reject) => {
-                clubs.forEach(async club => {
-                const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
-                const response = await fetch(url);
-                const {items} = await response.json();
-                const imgLink = items[0].volumeInfo.imageLinks.thumbnail
-                club.img = await imgLink;
-                console.log("this is running")
-        })})
-        getImgLink.then(() =>{
-            console.log(clubs)
-            res.render("explore-clubs", {clubs:clubs})
-        }) */
     } catch (err) {
         console.error(err);
         res.status(500).json(err);

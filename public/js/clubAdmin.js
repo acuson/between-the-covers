@@ -10,9 +10,12 @@ let btns = document.querySelectorAll("button");
 
 // PUT request to api to update club
 const updateClub = async (key, value) => {
+    // Initialize empty object for request
     let reqBody = {};
-    // Assign parameters as object
+
+    // Assign function parameters to be object
     reqBody[key] = value;
+
     // Pull Club id from url string that was passed from previous page
     const urlString = window.location.search;
     const clubId = new URLSearchParams(urlString).get("id");
@@ -26,7 +29,9 @@ const updateClub = async (key, value) => {
                 "Content-Type": "application/json",
             },
         });
-        console.log(`Club with id ${clubId} has been updated`);
+
+        // Reload page to load changes
+        location.reload();
     } catch (err) {
         console.log(err);
         console.log("Club not updated");
@@ -37,20 +42,22 @@ const updateClub = async (key, value) => {
 const toggleEdit = e => {
     e.preventDefault();
     // Selects textarea sibling
-    let currentBtn = e.currentTarget.previousElementSibling;
+    let textArea = e.currentTarget.previousElementSibling;
     let iconEl = e.currentTarget.children[0];
-    if (currentBtn.getAttribute("data-active") == "false") {
-        currentBtn.removeAttribute("disabled");
-        currentBtn.setAttribute("data-active", true);
+    if (textArea.getAttribute("data-active") == "false") {
+        textArea.removeAttribute("disabled");
+        textArea.setAttribute("data-active", true);
 
         // Change icon for funsies
         iconEl.classList.remove("fa-gear");
         iconEl.classList.add("fa-floppy-disk");
     } else {
-        currentBtn.setAttribute("disabled", "");
-        currentBtn.setAttribute("data-active", false);
-        const key = currentBtn.getAttribute("id");
-        const value = currentBtn.value;
+        textArea.setAttribute("disabled", "");
+        textArea.setAttribute("data-active", false);
+
+        // Store id and content as key/value pair
+        const key = textArea.getAttribute("id");
+        const value = textArea.value;
 
         // Change icon for funsies
         iconEl.classList.remove("fa-floppy-disk");

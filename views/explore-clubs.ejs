@@ -28,7 +28,8 @@
                                             <%} else { %>
                                             <%= club.start_date %>
                                             <%} %>
-                            <br>2 Spots left <br>
+                            <br>Spots Left: <%= (club.capacity - club.size) %>
+                            <br>
                         </p>
                         <% if (club.club_book == null) { %>
                             <img src="/images/tbd-book.png" style="height:20rem"/>
