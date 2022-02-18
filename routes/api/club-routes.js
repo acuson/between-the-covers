@@ -19,28 +19,28 @@ router.get("/", async (req, res) => {
 //desc: get clubs for explore feature
 router.get("/", async (req, res) => {
     try {
-        const clubs = await Club.findAll(/* {
+        const clubs = await Club.findAll({
       include: [{ model: Book }, { model: User }],
-    } */);
+    });
 
-    res.render("explore-clubs", {clubs:clubs});
+    res.render("explore-clubs", {clubs:clubs}).json(clubs);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 })
 //desc: get clubs for explore feature
-router.get('/', async (req, res) => {
-  try {
-    const clubs = await Club.findAll(/* {
-      include: [{ model: Book }, { model: User }],
-    } */);
-    res.render("explore-clubs", {clubs:clubs});
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-})
+// router.get('/', async (req, res) => {
+//   try {
+//     const clubs = await Club.findAll(/* {
+//       include: [{ model: Book }, { model: User }],
+//     } */);
+//     res.status(200).json(clubs);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json(err);
+//   }
+// })
 
 
 

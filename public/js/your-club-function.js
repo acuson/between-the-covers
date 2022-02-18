@@ -3,43 +3,33 @@ $('table tr').on('click', 'th', function () {
  }) 
 
 //  user_id;
-
-//  club-page/id of the club
-// function submitBtn(event){
-//     event.preventDefault();
-//     let yourClub = {
-//         // name: nameEl.value,
-//         // description: descriptionEl.value,
-//         // club_book: club_bookEl.value,
-//         // /* book_id: req.body.book_id, */
-//         // capacity: capacityEl.value,
-//         // meeting_day: meeting_dayEl.value,
-//         // meeting_time: meeting_timeEl.value,
-//         // meeting_start: club_dateEl.value,
-//         // meeting_link: club_dateEl.value,
-//         active: true,
-//     };
-//     const options ={
-//         method: 'POST',
-//         headers:{
-//             'Content-Type': 'application/json',
-//         },
-//         body:JSON.stringify(yourClub)
-//     }
-    
-//     fetch('/api/clubs/', options)
-//     .then(data => console.log(data.json))
-//     .catch(err => console.log(err))
-// };
-
-fetch('/api/clubs/1')
+// function fetchYourClubs(){
+//getting the book id and book name
+fetch('/api/clubs/')
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
+      console.log(data)
+fetch('/api/users/')
+.then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
     console.log(data);
-    console.log(data.id);
-    data.forEach(id => {
-        $('th')
-    })
-  }); 
+    console.log(data[0].id);
+
+  })
+  
+})
+//   function dataDisplay(data){
+//       console.log(data);
+//       for (let i = 0; i < data.length; i ++){
+//         var userName = document.createElement('h3');
+//         var issueTitle = document.createElement('p');
+//         userName.textContent = data[i].user.login;
+//         issueTitle.textContent = data[i].title;
+//         issueContainer.append(userName);
+//         issueContainer.append(issueTitle);
+//       }
+//   }
