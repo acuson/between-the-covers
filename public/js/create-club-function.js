@@ -31,7 +31,7 @@ function submitBtn(event){
     }
     
     fetch('/api/clubs/', options)
-    .then(data => console.log(data.json))
+    .then(data => location.href='/dashboard')
     .catch(err => console.log(err))
 };
 

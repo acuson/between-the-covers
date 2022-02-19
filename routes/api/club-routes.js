@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
         };
         // Create club
         const response = await Club.create(reqBody);
-        res.redirect("/dashboard");
+        
         res.status(200).json({ message: "Club Created" });
     } catch (err) {
         console.error(err);

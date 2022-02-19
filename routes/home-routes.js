@@ -26,11 +26,7 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { clubs });
 });
 
-<<<<<<< HEAD
-// GET explore book clubs page
 
-router.get('/explore', async(req, res) =>{
-=======
 // DESC: getting data from clubs to populate into the your-clubs page
 // GET /your-clubs
 router.get("/your-clubs", async (req, res) => {
@@ -42,7 +38,6 @@ router.get("/your-clubs", async (req, res) => {
 // DESC: Render the explore page with joinable clubs
 // GET explore
 router.get("/explore", async (req, res) => {
->>>>>>> kevin-branch
     try {
         // Query joinable clubs
         let clubs = await Club.findAll({
@@ -61,22 +56,12 @@ router.get("/explore", async (req, res) => {
                 const { items } = await response.json();
                 const imgLink = items[0].volumeInfo.imageLinks.thumbnail;
                 club.img = await imgLink;
-<<<<<<< HEAD
-                return await (club)
-            })
-            return Promise.all(newClubs)
-        }
-        const newClubs = await getImgLink(clubs) 
-        res.render("explore-clubs", {clubs:newClubs});
-
-=======
                 return await club;
             });
             return Promise.all(newClubs);
         };
         const newClubs = await getImgLink(clubs);
         res.render("explore-clubs", { clubs: clubs });
->>>>>>> kevin-branch
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -86,7 +71,6 @@ router.get("/explore", async (req, res) => {
 // DESC: render your clubs page
 // GET /your-clubs
 router.get("/your-clubs", async (req, res) => {
-<<<<<<< HEAD
     // let id = req.session.userData.id;
     let data = await User.findByPk(1, {
         include: [{ model: Club}],
@@ -96,15 +80,12 @@ router.get("/your-clubs", async (req, res) => {
     console.log(data)
     // console.log(data.clubs)
     res.render("your-clubs", {data: user});
-=======
-    res.render("your-clubs");
 });
 
 // DESC: render explo
 // GET explore book clubs page
 router.get("/explore", async (req, res) => {
     res.render("explore-clubs");
->>>>>>> kevin-branch
 });
 
 // DESC: render create club form
