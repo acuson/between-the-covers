@@ -53,7 +53,8 @@ Club.init(
     },
     {
         hooks:{
-            beforeUpdate: (club) =>{
+            beforeUpdate(club) {
+                console.log(club.size)
                 if(club.capacity == club.size){
                     club.joinable = false;
                 }

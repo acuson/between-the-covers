@@ -35,7 +35,7 @@ function like(e){
         }
     }
 
-    fetch(`/api/clubs/join/${joinClub.club_id}`, putOpts)
+    fetch(`/api/clubs/join/${club_id}`, putOpts)
         .then(data => console.log(data.json))
         .catch(err => console.log(err))
     

@@ -18,9 +18,15 @@ router.get("/create-user", async (req, res) => {
 
 // GET your book clubs page
 router.get("/dashboard", async (req, res) => {
-    const data = await Club.findAll();
-    const clubs = data.map(club => club.get({ plain: true }));
-    res.render("dashboard", { clubs });
+    let id = req.session.user_id;
+    let data = await User.findByPk(1, {
+        include: [{ model: Club }],
+    })
+    // username: req.body.user
+    let user = data.get({plain: true})
+    console.log(data)
+    // console.log(data.clubs)
+    res.render("dashboard", {data: user})
 });
 
 // GET explore book clubs page
@@ -42,14 +48,13 @@ router.get("/explore", async (req, res) => {
                 const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
                 const response = await fetch(url);
                 const {items} = await response.json();
-                console.log(items);
                 const imgLink = items[0].volumeInfo.imageLinks.thumbnail;
                 club.img = imgLink;
             });
             return Promise.all(newClubs);
         };
         const newClubs = await getImgLink(clubs);
-        res.render("explore-clubs", { clubs: clubs });
+        res.render("explore-clubs", {clubs: clubs });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -64,7 +69,7 @@ router.get("/explore", async (req, res) => {
 // GET your book clubs page
 router.get("/your-clubs", async (req, res) => {
     let id = req.session.user_id;
-    let data = await User.findByPk(id, {
+    let data = await User.findByPk(1, {
         include: [{ model: Club }],
     })
     // username: req.body.user

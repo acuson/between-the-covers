@@ -99,11 +99,12 @@ router.post("/join", async (req, res) => {
 
 // DESC: update club size when member joins
 // PUT /api/clubs/join/:id
-router.put('/:id', async (req, res) => {
+router.put('/join/:id', async (req, res) => {
   try { 
     const updateSize = await Club.increment(
       {size: +1},
-      {where:{ id:req.params.id}});
+      {where:{ id:req.params.id}}
+      );
     if(!updateSize){
       res.status(400).json({message:'No club is associated with that id'})
     } 
@@ -115,7 +116,7 @@ router.put('/:id', async (req, res) => {
 /* router.put('/join/:id', async (req, res) => {
   try { 
     const updateSize = await Club.update(
-      {size: 6},
+      {size: +},
       {where:
         { 
           id:req.params.id,
