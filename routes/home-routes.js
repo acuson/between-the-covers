@@ -79,4 +79,9 @@ router.get("/create-club", async (req, res) => {
     res.render("create-club");
 });
 
+// GET book suggestions page
+router.get("/book-suggestions", async (req, res) => {
+    res.render("book-suggestions");
+});
+
 module.exports = router;

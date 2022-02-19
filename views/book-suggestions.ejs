@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/_head') %>
+    <link rel="stylesheet" href="../public/css/nytimes.css" />
+    <title>Book List App</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <%- include('partials/_nav') %>
+    </nav>
+    <main>
+      <div class="container">
+        <h1>The Times Best Sellers</h1>
+        <div id="searchWrapper">
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Narrow down your search with an author, title, genre, or keyword"
+          />
+        </div>
+        </br>
+        <ul id="bookList"></ul>
+      </div>
+    </main>
+    </br>
+    </br>
+    <footer><%- include('partials/_footer')%></footer>
+    <script src="../public/js/nytimes-api.js"></script>
+  </body>
+
+  
+  </html>
