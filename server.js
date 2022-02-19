@@ -39,6 +39,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/public/css', express.static('public/css'));
+app.use('/public/js', express.static('public/js'));
 
 app.set("layout", "/views/your-clubs");
 

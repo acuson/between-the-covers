@@ -1,0 +1,101 @@
+body {
+  font-family: sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: black;
+  margin-bottom: 30px;
+}
+
+.container {
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+#bookList {
+  padding-inline-start: 0;
+  display: grid;
+  border: thin;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+}
+
+.books {
+  list-style-type: none;
+  background-color: #eaeaea;
+  border-radius: 3px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-template-areas:
+      'title title image'
+      'author author image'
+      'description description image'
+      'buy buy image';
+  text-align: left;
+}
+
+.books > h3 {
+  grid-area: title;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.books > h4 {
+  font-size: 17px;
+  grid-area: author;
+  margin-top: -15px;
+}
+
+.books > p {
+  line-height: normal;
+  grid-area: description;
+  margin-top: -5px;
+}
+
+.books > a {
+  grid-area: buy;
+  margin-top: -10px;
+  margin-bottom: -8px;
+}
+
+.books > img {
+  max-height: 140px;
+  grid-area: image;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#book-box {
+  border: 1px solid #EB6864;
+  
+}
+
+#searchBar {
+  width: 100%;
+  height: 32px;
+  border-radius: 3px;
+  background-color: #eaeaea;
+  border: 1px solid #EB6864;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+#searchWrapper {
+  position: relative;
+}
+
+#searchWrapper::after {
+  content: '🔍';
+  position: absolute;
+  top: 3px;
+  right: 15px;
+}
