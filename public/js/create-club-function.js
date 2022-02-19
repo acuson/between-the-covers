@@ -18,10 +18,11 @@ function submitBtn(event){
         capacity: capacityEl.value,
         meeting_day: meeting_dayEl.value,
         meeting_time: meeting_timeEl.value,
-        meeting_start: club_dateEl.value,
-        meeting_link: club_dateEl.value,
+        start_date: club_dateEl.value,
+        meeting_link: meeting_linkEl.value,
         active: true,
     };
+    console.log(createClub);
     const options ={
         method: 'POST',
         headers:{
