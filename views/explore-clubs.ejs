@@ -6,10 +6,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
     <main>  
-        <div class="container" style="position: relative; width: 100vh; height: 90vh;">
+        <div class="container-fluid d-flex justify-content-center" >
 
             <% clubs.forEach(club => { %>
-                <div class="card border-primary m-3" style="width: 20rem; min-height: 45rem; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" data-club_id="<%= club.id%>">
+                <div class="card border-primary m-5" style="width: 20rem; min-height: 45rem; max-height: max-content; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);" data-club_id="<%= club.id%>">
                     <div class="card-body">
                         <h2><%= club.name %></h2>
                         <p style="height: 75px;"><%= club.description %></p>
@@ -58,6 +58,7 @@
         </div>
     </div>
     </main>
+    <!-- <footer><%- include('partials/_footer')%></footer> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/explore-functions.js"></script>
 </body>
