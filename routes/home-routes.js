@@ -5,7 +5,6 @@ const { User, Club, Tag, User_Club } = require("../models");
 const fetch = require("node-fetch");
 const API_KEY = process.env.GOOGLE_API_KEY;
 const BASE_URL = process.env.BASE_URL;
-/* const joinData = require('../public/js/explore-functions'); */
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -16,69 +15,72 @@ router.get("/", async (req, res) => {
 router.get("/create-user", async (req, res) => {
     res.render("_create-user");
 });
-// GET dashboard
-// for now you can copy this rout and replace dashboard with your page name to check if it renders
-// GET your book clubs page
+
+// DESC: render dashboard with club information
+// GET /dashboard
 router.get("/dashboard", async (req, res) => {
+    // Sequelize query to get all clubs
     const data = await Club.findAll();
+    // Seriallize data to pass to ejs file
     const clubs = data.map(club => club.get({ plain: true }));
     res.render("dashboard", { clubs });
 });
 
-//getting data from clubs to populate into the your-clubs page
+// DESC: getting data from clubs to populate into the your-clubs page
+// GET /your-clubs
 router.get("/your-clubs", async (req, res) => {
     const data = await Club.findAll();
     const clubs = data.map(club => club.get({ plain: true }));
     res.render("your-clubs");
 });
 
-// GET explore book clubs page
-
-router.get('/explore', async(req, res) =>{
+// DESC: Render the explore page with joinable clubs
+// GET explore
+router.get("/explore", async (req, res) => {
     try {
-        let clubs = await Club.findAll(
-            {
-                where:{
-                    joinable:true
-                },
-                raw:true,
-            });
+        // Query joinable clubs
+        let clubs = await Club.findAll({
+            where: {
+                joinable: true,
+            },
+            raw: true,
+        });
 
-        const getImgLink = (clubs) => {
-            let newClubs =  clubs.map(async club => {
+        // Fetch img URL by searching Google Books API with book name
+        const getImgLink = clubs => {
+            // Fetch each link and return into a new array
+            let newClubs = clubs.map(async club => {
                 const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
                 const response = await fetch(url);
-                const {items} = await response.json();
-                const imgLink = items[0].volumeInfo.imageLinks.thumbnail
+                const { items } = await response.json();
+                const imgLink = items[0].volumeInfo.imageLinks.thumbnail;
                 club.img = await imgLink;
-                return await (club)
-            })
-            return Promise.all(newClubs)
-        }
-        const newClubs = await getImgLink(clubs) 
-        res.render("explore-clubs", {clubs:clubs});
-
+                return await club;
+            });
+            return Promise.all(newClubs);
+        };
+        const newClubs = await getImgLink(clubs);
+        res.render("explore-clubs", { clubs: clubs });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
-      }
+    }
 });
 
-router.get("/dashboard", async (req, res) => {
-    res.render("dashboard");
-});
-
-// GET your book clubs page
+// DESC: render your clubs page
+// GET /your-clubs
 router.get("/your-clubs", async (req, res) => {
     res.render("your-clubs");
 });
-// GET explore book clubs page
 
+// DESC: render explo
+// GET explore book clubs page
 router.get("/explore", async (req, res) => {
     res.render("explore-clubs");
 });
 
-// GET create book clubs page
+// DESC: render create club form
+// GET //create-club
 router.get("/create-club", async (req, res) => {
     res.render("create-club");
 });
