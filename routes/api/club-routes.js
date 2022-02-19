@@ -34,6 +34,7 @@ router.get("/:id", async (req, res) => {
 
 // DESC: Create club
 // POST /api/clubs/
+
 router.post("/", async (req, res) => {
     try {
         const reqBody = {

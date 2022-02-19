@@ -93,8 +93,8 @@ router.get("/your-clubs", async (req, res) => {
     })
     // username: req.body.user
     let user = data.get({plain: true})
-    console.log(user)
-    console.log(data.clubs)
+    console.log(data)
+    // console.log(data.clubs)
     res.render("your-clubs", {data: user});
 =======
     res.render("your-clubs");
