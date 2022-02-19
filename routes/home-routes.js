@@ -25,8 +25,6 @@ router.get("/dashboard", async (req, res) => {
     res.render("dashboard", { clubs });
 });
 
-
-
 // GET explore book clubs page
 
 router.get('/explore', async(req, res) =>{
@@ -51,7 +49,7 @@ router.get('/explore', async(req, res) =>{
             return Promise.all(newClubs)
         }
         const newClubs = await getImgLink(clubs) 
-        res.render("explore-clubs", {clubs:clubs});
+        res.render("explore-clubs", {clubs:newClubs});
 
     } catch (err) {
         console.error(err);
@@ -74,11 +72,6 @@ router.get("/your-clubs", async (req, res) => {
     console.log(user)
     console.log(data.clubs)
     res.render("your-clubs", {data: user});
-});
-// GET explore book clubs page
-
-router.get("/explore", async (req, res) => {
-    res.render("explore-clubs");
 });
 
 // GET create book clubs page
