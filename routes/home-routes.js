@@ -25,66 +25,38 @@ router.get("/dashboard", async (req, res) => {
 
 // GET explore book clubs page
 
-/* router.get('/explore', async(req, res) =>{
+router.get("/explore", async (req, res) => {
     try {
-        let clubs = await Club.findAll(
-            {
-                where:{
-                    joinable:true
-                },
-                raw:true,
-            });
-
-        const getImgLink = (clubs) => {
-            let newClubs =  clubs.map(async club => {
+        // Query joinable clubs
+        let clubs = await Club.findAll({
+            where: {
+                joinable: true,
+            },
+            raw: true,
+        });
+        // console.log(clubs);
+        // // Fetch img URL by searching Google Books API with book name
+        const getImgLink = clubs => {
+            // Fetch each link and return into a new array
+            let newClubs = clubs.map(async club => {
                 const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
                 const response = await fetch(url);
                 const {items} = await response.json();
-                const imgLink = items[0].volumeInfo.imageLinks.thumbnail
-                club.img = await imgLink;
-                return await (club)
-            })
-            return Promise.all(newClubs)
-        }
-        const newClubs = await getImgLink(clubs) 
-        res.render("explore-clubs", {clubs:newClubs});
-
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-      }
-}); */
-router.get('/explore', async(req, res) =>{
-    try {
-        let clubs = await Club.findAll(
-            {
-                where:{
-                    joinable:true
-                },
-                raw:true,
-            });
-
-        const getImgLink = (clubs) => {
-            let newClubs =  clubs.map(async club => {
-                const url = `${BASE_URL}?q=${club.club_book}&key=${API_KEY}`;
-                const response = await fetch(url);
-                const {items} = await response.json();
-                const imgLink = items[0].volumeInfo.imageLinks.thumbnail
+                console.log(items);
+                const imgLink = items[0].volumeInfo.imageLinks.thumbnail;
                 club.img = imgLink;
-                return club
-                console.log(club)
-            })
-            return Promise.all(newClubs)
-        }
-        const newClubs = await getImgLink(clubs) 
-       console.log(newClubs)
-        res.render("explore-clubs", {clubs:newClubs});
-
+            });
+            return Promise.all(newClubs);
+        };
+        const newClubs = await getImgLink(clubs);
+        res.render("explore-clubs", { clubs: clubs });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
-      }
+    }
 });
+
+
 /* router.get("/dashboard", async (req, res) => {
     res.render("dashboard");
 }); */
