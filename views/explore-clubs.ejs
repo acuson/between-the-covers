@@ -28,7 +28,11 @@
                                             <%} else { %>
                                             <%= club.start_date %>
                                             <%} %>
-                            <br>Spots Left: <%= (club.capacity - club.size) %>
+                            <br>Spots Left: <% if(club.capacity == club.size){ %> 
+                                            FULL
+                                            <%} else { %>
+                                            <%= club.capacity - club.size %>
+                                            <%} %>
                             <br>
                         </p>
                         <% if (club.club_book == null) { %>
@@ -37,10 +41,16 @@
                             <img src="<%= club.img%>" style="height:20rem"/>
                         <% } %>
                     </div>
+                    <% if(club.capacity === club.size){ %>
+                    <div class="buttons d-flex justify-content-center">
+                        <button class="dislike btn btn-primary m-2">Pass ):</button>
+                    </div>
+                    <%} else { %>
                     <div class="buttons d-flex justify-content-center">
                         <button class="dislike btn btn-primary m-2">Pass ):</button>
                         <button class="like btn btn-primary m-2">Join :)</button>
                     </div>
+                    <% } %>
                 </div>
             <% }) %>
         </div>

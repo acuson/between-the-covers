@@ -83,20 +83,32 @@ router.post('/logout', (req, res) => {
 
 // desc: Create User
 // POST /api/users/
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const userInfo = {
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    };
-    const response = await User.create(userInfo);
-    res.status(200).json({ message: 'User Created' });
+      const userInfo = {
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          username: req.body.username,
+          email: req.body.email,
+          password: req.body.password,
+      };
+      const response = await User.create(userInfo);
+
+      const userData = await User.findOne({
+        where: { email: req.body.email },
+        attributes: { exclude: ["password"] }
+    });
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+  });
+
+    res.status(200).json(userData);
   } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
+      console.error(err);
+      res.status(500).json(err);
   }
 });
 
