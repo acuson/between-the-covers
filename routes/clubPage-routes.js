@@ -6,7 +6,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const API_KEY = process.env.GOOGLE_API_KEY;
 const BASE_URL = process.env.BASE_URL;
 
-// desc: render club profile page
+// DESC: render club profile page
 // GET: /club-page/:id
 router.get("/:id", async (req, res) => {
     try {
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
                 const response = await fetch(url);
                 const { items } = await response.json();
                 const book = items[0].volumeInfo;
-                console.log(book)
+                console.log(book);
                 res.render("club-profile", {
                     club: club,
                     book: book,
@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// desc: render admin dashboard for club leader
+// DESC: render admin dashboard for club leader
 // GET /club-page/admin/:id
 router.get("/admin/:id", async (req, res) => {
     // Query db for club by primary key
@@ -51,7 +51,7 @@ router.get("/admin/:id", async (req, res) => {
     const response = await fetch(url);
     const { items } = await response.json();
 
-    // Volume info from Googe fetch.
+    // Volume info from Google fetch
     const book = items[0].volumeInfo;
     res.render("club-dash", {
         club: club,
