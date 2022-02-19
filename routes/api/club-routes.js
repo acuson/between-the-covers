@@ -74,6 +74,7 @@ router.post('/', async (req, res) => {
       meeting_start: req.body.meeting_start,
       meeting_link: req.body.meeting_link,
       active: req.body.active,
+      joinable: true
     };
     const response = await Club.create(reqBody);
     res.status(200).json({ message: 'Club Created' });
