@@ -27,7 +27,7 @@ router.get("/dashboard", async (req, res) => {
 
 // GET explore book clubs page
 
-router.get('/explore', async(req, res) =>{
+router.get('/explore-clubs', async(req, res) =>{
     try {
         let clubs = await Club.findAll(
             {
