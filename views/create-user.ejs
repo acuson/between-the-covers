@@ -19,7 +19,9 @@
                                             <input type="text" id="fname-signup" name="fname-signup"><br>
                                         <label for="lname-signup">Last Name</label><br>
                                             <input type="text" id="lname-signup" name="lname-signup"><br>
-                                        <label for="email-signup">Email</label><br>
+                                        <label for="username-signup">Username:</label><br>
+                                            <input type="text" id="username-signup" name="username-signup"><br>
+                                        <label for="email-signup">Email:</label><br>
                                             <input type="text" id="email-signup" name="email-signup"><br>
                                         <label for="password-signup">Create a password</label><br>
                                             <input type="password" id="password-signup" name="password-signup"><br>
@@ -69,9 +71,9 @@
                                                     </div>
                                                 </div> 
                                             </div>
-                                        <a href="/dashboard">    
-                                            <button type="submit" id="create-acct" class="btn btn-primary mt-2"> Create Account</button>
-                                        </a>
+                                        <!-- <a href="/dashboard">    --> 
+                                            <button type="submit" id="create-acct" class="btn btn-primary mt-2" onclick="signupFormHandler()"> Create Account</button>
+                                       <!--  </a> -->
                                     </form>
                                 </div>
                 </div>
@@ -79,4 +81,5 @@
     <!-- <footer>
         <%- include('partials/_footer')%>
     </footer>         -->
+    <script src="/js/login.js"></script>
 </body>
