@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/_head')%>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <%- include('partials/_nav') %> </nav>
+  <main>
+<div class="container-fluid d-flex justify-content-center">
+  <form data-bitwarden-watching="1" style="max-width: 40rem; padding-left: 5px" class="container-fluid" >
+      <fieldset>
+        <legend>
+          <h1 class="mt-2">Create Your BookClub!</h1>
+        </legend>
+        <div class="form-group">
+          <label class="col-form-label mt-4" for="inputDefault">Book Club Name:</label>
+          <input type="text" class="form-control" placeholder="Name Your Club!" id="name" style="border-color: #f5b4b2" data-com.bitwarden.browser.user-edited="yes">
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4" >How Large Would You Like Your Club To Be?</label>
+          <select class="form-select" id="capacity" style="border-color: #f5b4b2">
+            <option id="option5">Less Than 5 People</option>
+            <option id="option10">6-10</option>
+            <option id="option15">11-15</option>
+            <option id="optionTbt">Let The People Decide!</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label for="exampleTextarea" class="form-label mt-4">About The Club:</label>
+          <textarea class="form-control" id="description" rows="3"placeholder="Say Something About Your Club! Author, Genre etc." style="border-color: #f5b4b2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">What Day Works Best For You?</label>
+          <select class="form-select" id="meeting_day" style="border-color: #f5b4b2">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="sunday">Sunday</option>
+            <option value="flexibleDay">I'm flexible!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">What Time Works Best For You?</label>
+          <select class="form-select" id="meeting_time" style="border-color: #f5b4b2">
+            <option value="morning">Morning (9AM-11AM est)</option>
+            <option value="earlyAfternoon">Early Afternoon (12PM-3PM est)</option>
+            <option value="lateAfternoon">Late Afternoon (4PM-7PM est)</option>
+            <option value="evening">Evening (8PM-11PM est)</option>
+            <option value="flexibleTime">I'm flexible!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="col-form-label mt-4" for="inputDefault">When would you like the club to start:</label>
+          <input type="date" class="form-control" id="club_date" data-com.bitwarden.browser.user-edited="yes" style="border-color: #f5b4b2">
+        </div>
+        <fieldset class="form-group">
+          <legend class="mt-4" style="padding:5px">
+            <h1 class="mt-2">Pick Your Book</h1>
+          </legend>
+        <div class="form-group">
+          <label class="col-form-label mt-4" for="inputDefault">Name:</label>
+          <input type="text" class="form-control" placeholder="Book!" id="club_book" data-com.bitwarden.browser.user-edited="yes" style="border-color: #f5b4b2">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label mt-4" for="inputDefault">Meeting Link:</label>
+          <input type="text" class="form-control" placeholder="Meeting Link" id="meeting_link" data-com.bitwarden.browser.user-edited="yes" style="border-color: #f5b4b2">
+        </div>
+        <!-- <fieldset class="form-group">
+          <legend class="mt-4">By Genre</legend>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Fantasy
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Sci-Fi
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Mystery
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Thriller
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Romance
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Westerns
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Dystopian
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Contemporary
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+              Other
+              </label>
+        </fieldset> -->
+        <br>
+        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+  </main>
+  <!-- <footer><%- include('partials/_footer')%></footer> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="/js/create-club-function.js"></script>
+</body>

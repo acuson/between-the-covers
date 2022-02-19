@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/_head') %>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <%- include('partials/_nav') %>
+        </nav>
+        <main>
+            <div class="container card mt-5">
+                <div class="row">
+                    <% if (club.club_book == null) { %>
+                    <div class="col-3">
+                        <img
+                            src="/images/logo.png"
+                            class="rounded img-thumbnail"
+                            alt="thumbnail"
+                            style="width: 100%"
+                        />
+                    </div>
+                    <% } else { %>
+                    <div class="col-3">
+                        <a href="<%= book.infoLink %>" target="_blank">
+                            <img
+                                src="<%= book.imageLinks.thumbnail %>"
+                                class="rounded img-thumbnail"
+                                alt="thumbnail"
+                                style="width: 100%"
+                            />
+                        </a>
+                    </div>
+                    <% }%>
+                    <div class="col-8 p-5">
+                        <h1>Name: <%= club.name %></h1>
+                        <h2>Description: <%= club.description%></h2>
+                        <h2>Book: <%= club.club_book%></h2>
+                        <h2>Capacity: <%= club.capacity%></h2>
+                        <h2>
+                            Time: <%= club.meeting_day%> at <%=
+                            club.meeting_time%>
+                        </h2>
+
+                        <p>
+                            Meeting Link:
+                            <a href="<%= club.meeting_link %>">
+                                <%= club.meeting_link %></a
+                            >
+                        </p>
+                    </div>
+                    <% if (club.active) { %>
+                    <a
+                        href="/club-page/admin/<%= club.id %>?id=<%= club.id %>"
+                        class="btn btn-primary mt-5"
+                        style="
+                            height: 60px;
+                            width: 60px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        "
+                        ><i class="fa-solid fa-gear" style="font-size: 30px"></i
+                    ></a>
+                    <% } %>
+                </div>
+                <div class="row p-4">
+                    <h1>ANNOUNCEMENTS</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        In impedit itaque, laboriosam suscipit, sequi minus
+                        asperiores sapiente doloremque, corrupti optio rerum
+                        dignissimos. Laborum eligendi excepturi rerum? Aliquid
+                        laudantium sequi necessitatibus!
+                    </p>
+                </div>
+            </div>
+        </main>
+        <!-- <footer><%- include('partials/_footer')%></footer> -->
+    </body>
+</html>
