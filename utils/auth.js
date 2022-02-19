@@ -1,9 +1,9 @@
 const withAuth = (req, res, next) => {
     if (!req.session.logged_in) {
-      res.redirect('/index');
+        res.redirect("/dashboard");
     } else {
-      next();
+        next();
     }
-  };
-  
-  module.exports = withAuth;
+};
+
+module.exports = withAuth;
