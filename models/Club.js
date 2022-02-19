@@ -49,16 +49,16 @@ Club.init(
         joinable: {
             type: DataTypes.BOOLEAN,
             allowNull:false,
-            set: function(){
-                if(this.getDataValue('capacity')-this.getDataValue('size') > 0){
-                    this.setDataValue('joinable', true)
-                } else{
-                    this.setDataValue('joinable', false)
-                }
-            }
         }
     },
     {
+        hooks:{
+            beforeUpdate: (club) =>{
+                if(club.capacity == (club.size)){
+                    club.joinable = false;
+                }
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
