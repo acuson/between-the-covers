@@ -8,7 +8,13 @@ const BASE_URL = process.env.BASE_URL;
 
 // GET login page
 router.get("/", async (req, res) => {
-    res.render("index");
+    let logged_in =req.session.logged_in
+   /*  if (logged_in) {
+        res.redirect('/');
+        return;
+    } */
+
+    res.render("index", {logged_in: logged_in});
 });
 
 // GET create user page
@@ -19,14 +25,15 @@ router.get("/create-user", async (req, res) => {
 // GET your book clubs page
 router.get("/dashboard", async (req, res) => {
     let id = req.session.user_id;
-    let data = await User.findByPk(1, {
+    console.log(`user id: ${req.session.user_id}`)
+    let data = await User.findByPk(id, {
         include: [{ model: Club }],
     })
     // username: req.body.user
     let user = data.get({plain: true})
     console.log(data)
     // console.log(data.clubs)
-    res.render("dashboard", {data: user})
+    res.render("dashboard", {data: user, logged_in : req.session.logged_in})
 });
 
 // GET explore book clubs page
@@ -54,7 +61,7 @@ router.get("/explore", async (req, res) => {
             return Promise.all(newClubs);
         };
         const newClubs = await getImgLink(clubs);
-        res.render("explore-clubs", {clubs: clubs });
+        res.render("explore-clubs", {clubs: clubs, logged_in : req.session.logged_in });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -76,17 +83,17 @@ router.get("/your-clubs", async (req, res) => {
     let user = data.get({plain: true})
     console.log(data)
     // console.log(data.clubs)
-    res.render("your-clubs", {data: user});
+    res.render("your-clubs", {data: user, logged_in : req.session.logged_in});
 });
 
 // GET create book clubs page
 router.get("/create-club", async (req, res) => {
-    res.render("create-club");
+    res.render("create-club", {logged_in : req.session.logged_in});
 });
 
 // GET book suggestions page
 router.get("/book-suggestions", async (req, res) => {
-    res.render("book-suggestions");
+    res.render("book-suggestions", {logged_in : req.session.logged_in});
 });
 
 module.exports = router;

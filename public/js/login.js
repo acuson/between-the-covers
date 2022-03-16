@@ -6,12 +6,16 @@ const loginFormHandler = async (event) => {
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
+    console.log('this is running')
+
     if (email && password) {
-        const response = await fetch('/api/', {
+        console.log('running in if')
+
+        const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({email, password}),
-            headers: { 'Content Type' : 'application/json'},
-        });
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+          });
 
         if (response.ok) {
             document.location.replace('/dashboard');
@@ -20,6 +24,8 @@ const loginFormHandler = async (event) => {
         }
     }
 };
+
+
 
 const signupFormHandler = async e => {
     e.preventDefault();
@@ -39,7 +45,7 @@ const signupFormHandler = async e => {
                 username,
                 email,
                 password,
-            }),
+            }),        
             headers: { "Content-Type": "application/json" },
         });
         if (response.ok) {
@@ -50,5 +56,5 @@ const signupFormHandler = async e => {
 
 const button = document.querySelector(".signup-form");
 
-button.addEventListener("submit", signupFormHandler);
+/* button.addEventListener("click", signupFormHandler); */
   

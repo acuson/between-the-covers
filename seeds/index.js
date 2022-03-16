@@ -72,12 +72,12 @@ const clubData = [
     {
         name: "The Readers in the Rye",
         description: "A club for (re)discovering the clasics!",
-        club_book: null,
+        /* club_book: null, */
         capacity: 5,
         size:1,
-        meeting_day: null,
-        meeting_time: null,
-        start_date: null,
+        /* meeting_day: null, */
+        /* meeting_time: null, */
+        /* start_date: null, */
         meeting_link: "https://discord.gg/vDstjReC",
         active: true,
         joinable:true

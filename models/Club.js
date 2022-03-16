@@ -21,22 +21,27 @@ Club.init(
         },
         club_book: {
             type: DataTypes.TEXT,
+            defaultValue:'TBD'
         },
         capacity: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
         size:{
-            type: DataTypes.INTEGER
+            type: DataTypes.TEXT,
+            defaultValue:'TBD'
         },
         meeting_day:{
-            type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            defaultValue:'TBD'
         },
         meeting_time: {
             type: DataTypes.TEXT,
+            defaultValue:'TBD'
         },
         start_date:{
-            type: DataTypes.DATEONLY
+            type: DataTypes.TEXT,
+            defaultValue:'TBD'
         },
         meeting_link:{
             type: DataTypes.TEXT,
@@ -53,6 +58,12 @@ Club.init(
     },
     {
         hooks:{
+            beforeUpdate(club) {
+                console.log(club.size)
+                if(club.capacity == club.size){
+                    club.joinable = false;
+                }
+            },
             beforeUpdate(club) {
                 console.log(club.size)
                 if(club.capacity == club.size){

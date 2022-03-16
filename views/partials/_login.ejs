@@ -1,3 +1,4 @@
+<main>
 <div class="container d-flex flex-wrap mt-5 justify-content-center">
     <h1>Between the Covers</h1>
 </div>
@@ -7,13 +8,13 @@
             <div class="card-body mx-3 mb-3 d-flex justify-content-center">
                 <div>
                     <form class="login-form" action="/dashboard">
-                        <label for="email-login">Username</label><br>
+                        <label for="email-login">Email</label><br>
                         <input type="text" id="email-login" name="email-login"><br>
                         <label for="password-login">Password</label><br>
                         <input type="password" id="password-login" name="password-login"><br>
-                        <a href="/dashboard">
-                            <button type="submit" id="login" class="btn btn-primary mt-2">Login</button>
-                        </a>
+                        <!-- <a href="/dashboard"> -->
+                            <button type="submit" id="login" class="btn btn-primary mt-2" onclick="loginFormHandler(event)">Login</button>
+                        <!-- </a> -->
                     </form>
                     <p class="mt-2">New here? <a href="/create-user">Create an Account</a></p>
                 </div>
@@ -21,3 +22,6 @@
         </div>
     </div>
 </div>
+</main>
+
+

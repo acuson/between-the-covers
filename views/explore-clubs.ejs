@@ -13,21 +13,21 @@
                     <div class="card-body">
                         <h2><%= club.name %></h2>
                         <p style="height: 75px;"><%= club.description %></p>
-                        <p>Book: <% if(club.club_book == null){ %> 
+                        <p>Book: <!-- <% if(club.club_book == 'TBD'){ %> 
                                     TBD
-                                 <%} else{ %>
+                                 <%} else{ %> -->
                                     <%= club.club_book %>
-                                 <%} %>
-                            <br>Meeting time: <% if(club.meeting_day == null && club.meeting_time == null){ %> 
+                                 <!-- <%} %> -->
+                            <br>Meeting time:<!--  <% if(club.meeting_day == null && club.meeting_time == null){ %> 
                                             TBD
-                                            <%} else { %>
+                                            <%} else { %> -->
                                             <%= club.meeting_day %> @ <%= club.meeting_time %>
-                                            <%} %>
-                            <br>Start Date: <% if(club.start_date == null){ %> 
+                                            <!-- <%} %> -->
+                            <br>Start Date: <!-- <% if(club.start_date == null){ %> 
                                             TBD
-                                            <%} else { %>
+                                            <%} else { %> -->
                                             <%= club.start_date %>
-                                            <%} %>
+                                            <!-- <%} %> -->
                             <br>Spots Left: <% if(club.capacity == club.size){ %> 
                                             FULL
                                             <%} else { %>
@@ -35,7 +35,7 @@
                                             <%} %>
                             <br>
                         </p>
-                        <% if (club.club_book == null) { %>
+                        <% if (club.club_book == 'TBD') { %>
                             <img src="/images/tbd-book.png" style="height:20rem"/>
                         <%} else {%>
                             <img src="<%= club.img%>" style="height:20rem"/>

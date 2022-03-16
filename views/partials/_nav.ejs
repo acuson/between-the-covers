@@ -10,7 +10,13 @@
             </li>
 
             <li class="navbar-nav nav mx-2 my-2">
-                <a class="nav-link active btn btn-light text-primary" id="logout" type="button" href="/">Logout</a>
+                <a class="nav-link active btn btn-light text-primary" id="logout" type="button" href="/">
+                    <% if(logged_in){ %>
+                        Logout
+                    <%} else { %>
+                        Login
+                    <%} %>
+                    </a>
             </li>
         </ul>
     </div>

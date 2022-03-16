@@ -31,6 +31,7 @@ router.get("/:id", async (req, res) => {
                 res.render("club-profile", {
                     club: club,
                     book: book,
+                    logged_in : req.session.logged_in
                 });
             }
         }
@@ -56,6 +57,7 @@ router.get("/admin/:id", async (req, res) => {
     res.render("club-dash", {
         club: club,
         book: book,
+        logged_in : req.session.logged_in
     });
 });
 
